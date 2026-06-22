@@ -11,7 +11,7 @@ from fastapi import Depends, HTTPException, UploadFile, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from sqlalchemy.orm import Session
-from app.core.config import settings
+from Protheus.app.core.path_config import settings
 from Protheus.app.infrastructure.db.session import SessionLocal
 from Protheus.app.domain.models.user import User
 from Protheus.app.infrastructure.repositories.user_repository import UserRepository

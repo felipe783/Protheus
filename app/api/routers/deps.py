@@ -1,6 +1,6 @@
 from enum import Enum
 from typing import Generator, Optional
-from app.core.config import settings
+from Protheus.app.core.path_config import settings
 from Protheus.app.infrastructure.db.session import SessionLocal
 from Protheus.app.domain.models.user import User
 from Protheus.app.application.services.ocr_service import OCRService
@@ -22,21 +22,16 @@ import shutil
 import tempfile
 import unicodedata
 import uuid
+from app.core.path_config import *
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/login")
 
 # Caminho JSON
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-DB_PATH = BASE_DIR / "db" / "db.json"
-
-# Cria apenas a pasta db
 DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 def _get_db() -> dict:
     if not DB_PATH.exists():
         return {"documents": []}
-
     with open(DB_PATH, "r", encoding="utf-8") as f:
         try:
             return json.load(f)
