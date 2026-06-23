@@ -1,7 +1,7 @@
 import logging
 
 logging.basicConfig(
-    filename="app/infrastructure/logs/db_save.log",
+    filename="infrastructure/logs/logs_db.log",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
