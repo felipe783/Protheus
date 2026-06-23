@@ -14,7 +14,7 @@ def _get_db() -> dict:
         with open(DB_PATH, "r", encoding="utf-8") as f:
             data = json.load(f)
 
-        # validação básica
+        # validação
         if not isinstance(data, dict):
             logging.warning("DB inválido (não é dict). Usando fallback.")
             return {"documents": []}
