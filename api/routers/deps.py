@@ -1,7 +1,7 @@
 from __future__ import annotations
 import json
-from Protheus.app.core.db_path_config import *
-from Protheus.app.core.log_config import *
+from Protheus.core.db_path_config import *
+from Protheus.core.log_config import *
 
 DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 

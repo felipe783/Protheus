@@ -1,4 +1,4 @@
-from Protheus.app.domain.models.dcoument_type import documentType
+from Protheus.domain.models.dcoument_type import documentType
 
 KEY_WORDS: dict[documentType, list[str]] = {
     documentType.CRLV_E: [

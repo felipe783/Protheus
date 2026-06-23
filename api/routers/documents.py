@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, UploadFile
 import deps_true  
 from Protheus.app.domain.models.user import User
 from Protheus.app.infrastructure.repositories.checklist_repository import ChecklistRepository
-from Protheus.app.application.services.document_classifier import DocumentClassifierService
-from Protheus.app.application.services.storage_service import StorageService
-from Protheus.app.application.services.ner_service import NERService
-from Protheus.app.application.services.embedding_service import EmbeddingService
+from Protheus.application.services.document_classifier import DocumentClassifierService
+from Protheus.application.services.storage_service import StorageService
+from Protheus.application.services.ner_service import NERService
+from Protheus.application.services.embedding_service import EmbeddingService
 
 router = APIRouter()
 # upload (RF01 + RF03)

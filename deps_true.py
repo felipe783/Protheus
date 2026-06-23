@@ -11,17 +11,17 @@ from fastapi import Depends, HTTPException, UploadFile, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from sqlalchemy.orm import Session
-from Protheus.app.core.db_path_config import settings
-from Protheus.app.infrastructure.db.session import SessionLocal
+from Protheus.core.db_path_config import settings
+from Protheus.infrastructure.db.session import SessionLocal
 from Protheus.app.domain.models.user import User
 from Protheus.app.infrastructure.repositories.user_repository import UserRepository
 from Protheus.app.infrastructure.repositories.checklist_repository import ChecklistRepository
-from Protheus.app.application.services.ocr_service import OCRService
-from Protheus.app.application.services.document_classifier import DocumentClassifierService
-from Protheus.app.application.services.nfe_parser import NFeParserService
-from Protheus.app.application.services.embedding_service import EmbeddingService
-from Protheus.app.application.services.ner_service import NERService
-from Protheus.app.application.services.storage_service import StorageService
+from Protheus.application.services.ocr_service import OCRService
+from Protheus.application.services.document_classifier import DocumentClassifierService
+from Protheus.application.services.nfe_parser import NFeParserService
+from Protheus.application.services.embedding_service import EmbeddingService
+from Protheus.application.services.ner_service import NERService
+from Protheus.application.services.storage_service import StorageService
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/login")
 
