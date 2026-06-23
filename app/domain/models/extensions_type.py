@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class TypeExtension(str, Enum):
+class extensionType(str, Enum):
     PDF = ".pdf"
     XML = ".xml"
     DOCX = ".docx"
