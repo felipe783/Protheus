@@ -1,6 +1,6 @@
 from datetime import datetime
 import uuid
-from Protheus.domain.interfaces.documentRepository import DocumentoRepository
+from Protheus.domain.interfaces.documentRepositoryInterface import DocumentoRepository
 from Protheus.domain.models.documentModel import Documento
 
 class DocumentoService:
