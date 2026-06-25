@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
-from Protheus.domain.models import Document, DocumentUUID
+from domain.models import Document, DocumentUUID
 
 @dataclass
 class DocumentEntity:
