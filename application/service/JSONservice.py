@@ -1,7 +1,7 @@
 from datetime import datetime
 import uuid
 from Protheus.domain.interfaces.documentRepositoryInterface import DocumentoRepository
-from Protheus.domain.models.documentModel import Documento
+from Protheus.domain.models.Document import Documento
 
 class DocumentoService:
     def __init__(self, repo: DocumentoRepository):

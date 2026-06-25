@@ -1,5 +1,5 @@
 from typing import Protocol, Optional
-from domain.models.documentModel import Documento
+from Protheus.domain.models.Document import Documento
 
 class DocumentoRepository(Protocol):
     def add(self, documento: Documento) -> Documento: ...

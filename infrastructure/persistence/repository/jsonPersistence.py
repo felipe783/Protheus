@@ -1,5 +1,5 @@
 from api.routers.deps import _get_db, _save_db
-from Protheus.domain.models.documentModel import Documento
+from Protheus.domain.models.Document import Documento
 
 class JSONDocumentPersistence:
 

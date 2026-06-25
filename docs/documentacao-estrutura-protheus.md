@@ -348,12 +348,12 @@ infrastructure/db/db.json      ← dados persistidos
 
 ## Resumo por Camada
 
-| Camada | Pasta | Conhece | É conhecida por |
-|---|---|---|---|
-| Domínio | `domain/` | Ninguém | Application, Infrastructure |
-| Aplicação | `application/` | Domain | API |
-| Infraestrutura | `infrastructure/` | Domain | Application (via interface) |
-| API/Entrega | `api/` | Application | Ninguém (ponto de entrada) |
-| Transversal | `core/` | Ninguém | Todos |
-| Testes | `test/` | Todos | Ninguém |
-| Documentação | `docs/` | — | — |
+| Camada         | Pasta              | Conhece          | É conhecida por                     |
+|----------------|--------------------|------------------|-------------------------------------|
+| Domínio        | `domain/`          | Ninguém          | Application, Infrastructure         |
+| Aplicação      | `application/`     | Domain           | API                                 |
+| Infraestrutura | `infrastructure/`  | Domain           | Application (via interface)         |
+| API/Entrega    | `api/`             | Application      | Ninguém (ponto de entrada)          |
+| Transversal    | `core/`            | Ninguém          | Todos                               |
+| Testes         | `test/`            | Todos            | Ninguém                             |
+| Documentação   | `docs/`            | —                | —                                   |
