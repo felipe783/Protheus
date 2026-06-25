@@ -2,7 +2,7 @@ from Protheus.infrastructure.persistence.repository.JsonRepositoryDeps import _s
 
 def test_save_logs(tmp_path, monkeypatch, caplog):
     fake_db = tmp_path / "db.json"
-    monkeypatch.setattr("core.db_path_config.DB_PATH", fake_db)
+    monkeypatch.setattr("core.dbPathConfig.DB_PATH", fake_db)
 
     data = {"documents": []}
 

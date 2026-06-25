@@ -18,9 +18,6 @@ build/
 # PyInstaller
 *.spec
 
-# Logs
-*.log
-
 # Unit test / coverage
 htmlcov/
 .tox/
