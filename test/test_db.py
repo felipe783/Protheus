@@ -1,5 +1,5 @@
 import pytest
-from api.routers.deps import _get_db, _save_db
+from Protheus.infrastructure.persistence.repository.JsonRepositoryDeps import _get_db, _save_db
 # python -m pytest -v
 
 def test_get_db_file_not_exists(tmp_path, monkeypatch):

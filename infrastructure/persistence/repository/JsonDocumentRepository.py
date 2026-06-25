@@ -1,14 +1,21 @@
-from domain.models import Document
+from domain.models.Document import Document
 from domain.interfaces import DocumentRepository
 from infrastructure.persistence.entity import DocumentEntity
+from infrastructure.persistence.repository.JsonRepositoryDeps import get_db,save_db
 
 class JsonDocumentRepository(DocumentRepository):
 
-    def __init__(self, documentEntityRepository):
-        self._documentEntityRepository = documentEntityRepository
+    def save(self, document):
+        data = get_db()
+        data["documents"].append(DocumentEntity.fromDomain(document).__dict__)
 
-    def save(self, document: Document) -> Document:
-        entity = DocumentEntity.fromDomain(document)
+        save_db(data)
+        return document
 
-        return self._documentEntityRepository.save(entity).toDomain()
+    def getAll(self) -> list[Document]:
+        data = get_db()
 
+        return[
+            DocumentEntity(**item).toDomain()
+            for item in data["documents"]
+            ]

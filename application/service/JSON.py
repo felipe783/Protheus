@@ -2,7 +2,7 @@ import datetime
 from typing import Any
 import uuid
 from pyparsing import Optional
-from Protheus.api.routers.deps import _save_db, _get_db
+from Protheus.infrastructure.persistence.repository.JsonRepositoryDeps import _save_db, _get_db
 
 
 class JSONRepository:

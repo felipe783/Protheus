@@ -1,4 +1,4 @@
-from api.routers.deps import _save_db
+from Protheus.infrastructure.persistence.repository.JsonRepositoryDeps import _save_db
 
 def test_save_logs(tmp_path, monkeypatch, caplog):
     fake_db = tmp_path / "db.json"
