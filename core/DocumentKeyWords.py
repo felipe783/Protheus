@@ -1,29 +1,42 @@
 from domain.models.DocumentType import documentType
 
-NFE_PATTERNS = {
-    "chave_acesso": r"<chNFe>(\d{44})</chNFe>",
-    "numero_nota": r"<nNF>(\d+)</nNF>",
-    "serie": r"<serie>(\d+)</serie>",
-    "cnpj_emitente": r"<emit>.*?<CNPJ>(\d+)</CNPJ>",
-    "valor_total": r"<vNF>([\d.]+)</vNF>",
-}
-
-CNPJ_PATTERNS = {
-    "cnpj": r"<cnpj>(\d+)</cnpj>",
-    "razao_social": r"<razaoSocial>(.*?)</razaoSocial>",
-    "nome_fantasia": r"<nomeFantasia>(.*?)</nomeFantasia>",
-    "situacao": r"<situacaoCadastral>(.*?)</situacaoCadastral>",
-}
-
-CRLV_PATTERNS = {
-    "placa": r"<placa>(.*?)</placa>",
-    "renavam": r"<renavam>(\d+)</renavam>",
-    "ano_exercicio": r"<exercicio>(\d+)</exercicio>",
-    "chassi": r"<chassi>(.*?)</chassi>",
-}
-
-DOCUMENT_PATTERNS = {
-    documentType.DANFE_XML: NFE_PATTERNS,
-    documentType.CARTAO_CNPJ: CNPJ_PATTERNS,
-    documentType.CRLV: CRLV_PATTERNS,
+KEY_WORDS: dict[documentType, list[str]] = {
+    documentType.CRLV_E: [
+        "crlv", 
+        "certificado de registro e licenciamento", 
+        "renavam",
+        "licenciamento de veiculo", 
+        "exercicio",
+    ],
+    documentType.CARTAO_CNPJ: [
+        "cartao cnpj",
+        "comprovante de inscricao", 
+        "cadastro nacional da pessoa juridica",
+        "situacao cadastral", 
+        "receita federal",
+    ],
+    documentType.DANFE_XML: [
+        "danfe", 
+        "nota fiscal eletronica",
+        "nfe", 
+        "chave de acesso",
+        "protocolo de autorizacao", 
+        "documento auxiliar da nota fiscal",
+    ],
+    documentType.LAUDO: [
+        "laudo", 
+        "laboratorio", 
+        "analise laboratorial", 
+        "resultado de exame", 
+        "amostra",
+    ],
+    documentType.CONTRATO: [
+        "contrato", 
+        "contratante", 
+        "contratada", 
+        "clausula", 
+        "rescisao", 
+        "multa",
+        "partes contratantes",
+    ],
 }

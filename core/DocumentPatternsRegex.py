@@ -1,3 +1,5 @@
+from domain.models.DocumentType import documentType
+
 NFE_PATTERNS = {
     "chave_acesso": r"<chNFe>(\d{44})</chNFe>",
     "numero_nota": r"<nNF>(\d+)</nNF>",
@@ -18,4 +20,10 @@ CRLV_PATTERNS = {
     "renavam": r"<renavam>(\d+)</renavam>",
     "ano_exercicio": r"<exercicio>(\d+)</exercicio>",
     "chassi": r"<chassi>(.*?)</chassi>",
+}
+
+DOCUMENT_PATTERNS = {
+    documentType.DANFE_XML: NFE_PATTERNS,
+    documentType.CARTAO_CNPJ: CNPJ_PATTERNS,
+    documentType.CRLV_E: CRLV_PATTERNS,
 }
