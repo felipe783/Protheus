@@ -1,6 +1,6 @@
 from datetime import datetime
 from fastapi import APIRouter, UploadFile, File
-from Protheus.application.ExtractDocumentUseCase import DocumentExtractor
+from application.ExtractDocumentUseCase import DocumentExtractor
 from application.DocumentTypeDetector import DocumentTypeDetector
 from application.DocumentExtensionDetector import DocumentExtensionDetector
 from application.input.DocumentInput import DocumentInput
