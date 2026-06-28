@@ -8,6 +8,6 @@ from models.DocumentExtension import documentExtension
 class Document:
     id: id
     created_in: datetime
-    description: dict
+    description: dict[str, str | None]
     type: documentType
     extension: documentExtension
