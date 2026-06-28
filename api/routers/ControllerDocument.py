@@ -1,6 +1,7 @@
 from datetime import datetime
 from fastapi import APIRouter, UploadFile, File
-from application.ExtractDocumentUseCase import DocumentExtractor
+
+from application.DocumentExtractor import DocumentExtractor
 from application.DocumentTypeDetector import DocumentTypeDetector
 from application.DocumentExtensionDetector import DocumentExtensionDetector
 from application.input.DocumentInput import DocumentInput
@@ -15,11 +16,12 @@ async def extract_document(
     file: UploadFile = File(...)
 ):
     content = await file.read()
+    text = content.decode("utf-8", errors="ignore")
 
     extension = DocumentExtensionDetector.detect(file.filename)
 
     document_type = DocumentTypeDetector.detect(
-        content=content.decode("utf-8", errors="ignore"),
+        content=text,
         extension=extension
     )
 
@@ -29,9 +31,9 @@ async def extract_document(
         extension=extension
     )
 
-    result = DocumentExtractor().execute(
-        file_content=content,
-        document_input=document_input
+    result = DocumentExtractor.extract(
+        content=text,
+        document_type=document_input.type
     )
 
     return result

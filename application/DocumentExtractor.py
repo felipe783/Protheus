@@ -2,7 +2,6 @@ import re
 from core.DocumentPatternsRegex import DOCUMENT_PATTERNS
 from domain.models.DocumentType import documentType
 
-
 class DocumentExtractor:
 
     @staticmethod
