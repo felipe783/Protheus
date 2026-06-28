@@ -8,5 +8,3 @@ class DocumentInput:
     created_in: datetime
     type: documentType
     extension: documentExtension
-
-    

@@ -8,6 +8,7 @@ class FileReaderFactory:
     @staticmethod
     def create(extension: documentExtension):
         match extension:
+            
             case documentExtension.PDF:
                 return PdfReader()
             
