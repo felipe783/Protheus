@@ -1,3 +1,17 @@
 {
-  "documents": []
+    "documents": [
+        {
+            "id": "5feac749-020f-4bf8-8478-6669d5974445",
+            "created_in": "2026-07-01 08:16:05.300260",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        }
+    ]
 }
