@@ -11,6 +11,8 @@ from application.input.DocumentInput import DocumentInput
 from fastapi import APIRouter, UploadFile, File
 import tempfile
 import os
+from core.Logs.LogUploadConfig import logging
+import logging
 
 
 documentController = APIRouter(
@@ -28,13 +30,12 @@ async def extract_document(file: UploadFile = File(...)):
         tmp.write(content)
         tmp_path = tmp.name
 
-    # Chamndo a factory
+    # Chamando a factory
     try:
         reader = FileReaderFactory.get(extension)
         text = reader.extract(tmp_path)
-        print("=== TEXTO EXTRAÍDO ===")
-        print((text[:1000]))  
-    finally:
+        logging.debug(f"Texto extraído de {file.filename}:\n{text}")
+    finally: # Fecha o Arquivo Temp
         os.unlink(tmp_path)
 
     documentType = DocumentTypeDetector.detect(content=text,extension=extension)

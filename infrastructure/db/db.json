@@ -90,6 +90,45 @@
             },
             "type": "danfe_xml",
             "extension": ".pdf"
+        },
+        {
+            "id": "aeb1fd5c-231a-43d7-a5b6-632850cfeb67",
+            "created_in": "2026-07-02 08:01:54.364681",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": null,
+                "serie": null,
+                "cnpj_emitente": null,
+                "valor_total": null
+            },
+            "type": "danfe_xml",
+            "extension": ".pdf"
+        },
+        {
+            "id": "2eee7e30-72cc-474d-882d-f1fa8dc1bd64",
+            "created_in": "2026-07-02 08:05:12.345882",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": null,
+                "serie": null,
+                "cnpj_emitente": null,
+                "valor_total": null
+            },
+            "type": "danfe_xml",
+            "extension": ".pdf"
+        },
+        {
+            "id": "1152e734-7350-4682-b3df-2d5802e1e132",
+            "created_in": "2026-07-02 08:05:46.263073",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
         }
     ]
 }
