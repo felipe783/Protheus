@@ -9,10 +9,12 @@ NFE_PATTERNS = {
 }
 
 CNPJ_PATTERNS = {
-    "cnpj": r"<cnpj>(\d+)</cnpj>",
-    "razao_social": r"<razaoSocial>(.*?)</razaoSocial>",
-    "nome_fantasia": r"<nomeFantasia>(.*?)</nomeFantasia>",
-    "situacao": r"<situacaoCadastral>(.*?)</situacaoCadastral>",
+    "cnpj": r"NÚMERO\s*DE\s*INSCRIÇÃO\s*([\d./-]+)",
+    "razao_social": r"NOME\s*EMPRESARIAL\s*([\s\S]*?)\s*TÍTULO\s*DO\s*ESTABELECIMENTO",
+    "nome_fantasia": r"TÍTULO\s*DO\s*ESTABELECIMENTO.*?\n([\s\S]*?)\s*PORTE", 
+    "data_criacao": r"DATA\s*DE\s*ABERTURA\s*([\d]{2}/[\d]{2}/[\d]{4})", 
+    "situacao": r"SITUAÇÃO\s*CADASTRAL\s*(ATIVA|BAIXADA|SUSPENSA|INAPTA|NULA)", 
+    "nome_socio": r"QSA[\s\S]*?\n([A-Za-zÀ-ÿ\s]+?)\s+Sócio-Administrador"
 }
 
 CRLV_PATTERNS = {

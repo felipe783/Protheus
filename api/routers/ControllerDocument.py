@@ -1,4 +1,3 @@
-from datetime import datetime
 from domain.models.Document import Document
 from domain.models.DocumentUUID import DocumentUUID
 from domain.models.FileReaderFactory import FileReaderFactory 
@@ -8,12 +7,13 @@ from application.DocumentExtractor import DocumentExtractor
 from application.DocumentTypeDetector import DocumentTypeDetector
 from application.DocumentExtensionDetector import DocumentExtensionDetector
 from application.input.DocumentInput import DocumentInput
+from core.Logs.LogUploadConfig import logging
 from fastapi import APIRouter, UploadFile, File
+
+from datetime import datetime
 import tempfile
 import os
-from core.Logs.LogUploadConfig import logging
 import logging
-
 
 documentController = APIRouter(
     prefix="/document",
@@ -34,11 +34,12 @@ async def extract_document(file: UploadFile = File(...)):
     try:
         reader = FileReaderFactory.get(extension)
         text = reader.extract(tmp_path)
-        logging.debug(f"Texto extraído de {file.filename}:\n{text}")
+        #logging.debug(f"Texto extraído de {file.filename}:\n{text}")
     finally: # Fecha o Arquivo Temp
         os.unlink(tmp_path)
 
     documentType = DocumentTypeDetector.detect(content=text,extension=extension)
+    #logging.debug(f"Tipo documento Detectado {documentType}")
     documentInput = DocumentInput(
         created_in=datetime.now(),
         type=documentType,
@@ -53,7 +54,7 @@ async def extract_document(file: UploadFile = File(...)):
         type=documentInput.type,
         extension=documentInput.extension
     )
-
+    logging.debug(document)
     # Salvar no JSON
     entity = DocumentEntity.fromDomain(document) # Converter do dominio -> Json
     db = get_db()

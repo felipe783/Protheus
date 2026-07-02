@@ -129,6 +129,99 @@
             },
             "type": "danfe_xml",
             "extension": ".xml"
+        },
+        {
+            "id": "04733152-2bfb-41f5-802a-59a0f9645694",
+            "created_in": "2026-07-02 08:35:09.060913",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        },
+        {
+            "id": "f3e79bd6-8a05-42e7-894d-08eca188e351",
+            "created_in": "2026-07-02 08:35:30.930126",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        },
+        {
+            "id": "8a098388-2a98-4e80-a929-215488460d2e",
+            "created_in": "2026-07-02 08:38:25.436846",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        },
+        {
+            "id": "b88f486f-a784-40bb-b2ac-7fa2a705467b",
+            "created_in": "2026-07-02 08:39:03.712944",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        },
+        {
+            "id": "22f7a13b-76a5-4e73-a454-3958ef1ca87a",
+            "created_in": "2026-07-02 08:40:33.890542",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        },
+        {
+            "id": "5df7bcb1-78af-4819-881f-29d801e1bfe8",
+            "created_in": "2026-07-02 08:45:10.636174",
+            "description": {},
+            "type": "desconhecido",
+            "extension": ".pdf"
+        },
+        {
+            "id": "90b9c613-4c72-4c10-afc2-a1a2d05c1267",
+            "created_in": "2026-07-02 08:45:28.669530",
+            "description": {},
+            "type": "desconhecido",
+            "extension": ".pdf"
+        },
+        {
+            "id": "79c6b942-fdb2-4d99-a69c-f34a2d147c73",
+            "created_in": "2026-07-02 08:52:39.458242",
+            "description": {
+                "cnpj": "21.532.334/0001-86",
+                "razao_social": "MX\tSOLUCOES\tLTDA",
+                "nome_fantasia": "MX\tSolucoes",
+                "data_criacao": "21/11/2014",
+                "situacao": "ATIVA",
+                "nome_socio": "DATA\tDE\tENTRADA\nPAÍS\nMatheus\tJose\tCucoloto\tdos\tSantos"
+            },
+            "type": "cartao_cnpj",
+            "extension": ".pdf"
         }
     ]
 }

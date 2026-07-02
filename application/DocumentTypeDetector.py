@@ -9,7 +9,6 @@ class DocumentTypeDetector:
         content: str,
         extension: documentExtension
     ) -> documentType:
-
         content = content.lower()
 
         if extension == documentExtension.XML:
@@ -20,26 +19,17 @@ class DocumentTypeDetector:
                 return documentType.DANFE_XML
 
             return documentType.DESCONHECIDO
-
         scores = {}
 
         for doc_type, keywords in KEY_WORDS.items():
-
             score = 0
-
             for keyword in keywords:
-
                 if keyword.lower() in content:
                     score += 1
-
             scores[doc_type] = score
 
-        best_match = max(
-            scores,
-            key=scores.get
-        )
-
-        if scores[best_match] == 0:
+        best_match = max(scores,key=scores.get)
+        if scores[best_match] < 3:
             return documentType.DESCONHECIDO
 
         return best_match
