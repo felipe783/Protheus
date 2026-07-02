@@ -34,7 +34,7 @@ async def extract_document(file: UploadFile = File(...)):
     try:
         reader = FileReaderFactory.get(extension)
         text = reader.extract(tmp_path)
-        #logging.debug(f"Texto extraído de {file.filename}:\n{text}")
+        logging.debug(f"Texto extraído de {file.filename}:\n{text}")
     finally: # Fecha o Arquivo Temp
         os.unlink(tmp_path)
 

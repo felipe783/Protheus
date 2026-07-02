@@ -2,11 +2,23 @@ from domain.models.DocumentType import documentType
 
 KEY_WORDS: dict[documentType, list[str]] = {
     documentType.CRLV_E: [
-        "crlv", 
-        "certificado de registro e licenciamento", 
-        "renavam",
-        "licenciamento de veiculo", 
-        "exercicio",
+        "CRLV-e",
+        "CERTIFICADO DE REGISTRO E LICENCIAMENTO DE VEÍCULO",
+        "PLACA",
+        "RENAVAM",
+        "CHASSI",
+        "MARCA/MODELO",
+        "ANO FABRICAÇÃO",
+        "ANO MODELO",
+        "COR",
+        "COMBUSTÍVEL",
+        "CATEGORIA",
+        "PROPRIETÁRIO",
+        "CPF",
+        "MUNICÍPIO",
+        "EXERCÍCIO",
+        "LICENCIAMENTO",
+        "VEÍCULO",
     ],
     documentType.CARTAO_CNPJ: [
         "NÚMERO DE INSCRIÇÃO",

@@ -291,6 +291,197 @@
             },
             "type": "cartao_cnpj",
             "extension": ".pdf"
+        },
+        {
+            "id": "2f0d5a8e-ba29-42ef-a47f-6374e1f671d5",
+            "created_in": "2026-07-02 09:02:42.011509",
+            "description": {
+                "placa": null,
+                "renavam": null,
+                "ano_exercicio": null,
+                "chassi": null
+            },
+            "type": "crlv_e",
+            "extension": ".odt"
+        },
+        {
+            "id": "e8ed7087-adec-42fb-8398-a2a594b5733b",
+            "created_in": "2026-07-02 09:06:53.774686",
+            "description": {
+                "placa": null,
+                "renavam": null,
+                "chassi": null,
+                "marca_modelo": null,
+                "ano_fabricacao": null,
+                "ano_modelo": null,
+                "combustivel": null,
+                "cor": null,
+                "categoria": null,
+                "proprietario": null,
+                "cpf": null,
+                "municipio": null,
+                "licenciamento": null
+            },
+            "type": "crlv_e",
+            "extension": ".odt"
+        },
+        {
+            "id": "7fc25ebe-2c95-4038-a22a-6edd320d0739",
+            "created_in": "2026-07-02 09:09:07.307816",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        },
+        {
+            "id": "62052e58-7329-4b5a-824f-016d286dcef1",
+            "created_in": "2026-07-02 09:09:13.966673",
+            "description": {
+                "cnpj": "21.532.334/0001-86",
+                "razao_social": "MX SOLUCOES LTDA",
+                "nome_fantasia": "MX Solucoes",
+                "data_criacao": "21/11/2014",
+                "situacao": "ATIVA",
+                "nome_socio": "Matheus Jose Cucoloto dos Santos"
+            },
+            "type": "cartao_cnpj",
+            "extension": ".pdf"
+        },
+        {
+            "id": "eb163040-5b4d-48c1-b463-624f71977ed7",
+            "created_in": "2026-07-02 09:09:20.370140",
+            "description": {
+                "placa": null,
+                "renavam": null,
+                "chassi": null,
+                "marca_modelo": ": Exemplo Motors Hatch LX",
+                "ano_fabricacao": null,
+                "ano_modelo": null,
+                "combustivel": ": Flex",
+                "cor": ": Prata",
+                "categoria": ": Particular",
+                "proprietario": ": João da Silva Exemplo",
+                "cpf": null,
+                "municipio": ": Cidade Exemplo/BR",
+                "licenciamento": null
+            },
+            "type": "crlv_e",
+            "extension": ".odt"
+        },
+        {
+            "id": "5640092d-12d5-475f-88e2-652c118de5cc",
+            "created_in": "2026-07-02 09:11:04.486114",
+            "description": {
+                "placa": null,
+                "renavam": null,
+                "chassi": null,
+                "marca_modelo": ": EXEMPLO MOTORS HATCH LX",
+                "ano_fabricacao": null,
+                "ano_modelo": null,
+                "combustivel": ": FLEX",
+                "cor": ": PRATA",
+                "categoria": ": PARTICULAR",
+                "proprietario": ": JOÃO DA SILVA EXEMPLO",
+                "cpf": null,
+                "municipio": ": CIDADE EXEMPLO/BR",
+                "licenciamento": null
+            },
+            "type": "crlv_e",
+            "extension": ".odt"
+        },
+        {
+            "id": "e0590c1c-0863-4ec1-9fc4-b0339ff70277",
+            "created_in": "2026-07-02 09:12:16.615678",
+            "description": {
+                "cnpj": "21.532.334/0001-86",
+                "razao_social": "MX SOLUCOES LTDA",
+                "nome_fantasia": "MX SOLUCOES",
+                "data_criacao": "21/11/2014",
+                "situacao": "ATIVA",
+                "nome_socio": null
+            },
+            "type": "cartao_cnpj",
+            "extension": ".pdf"
+        },
+        {
+            "id": "23cf11af-c814-4721-8cb5-a1629149a705",
+            "created_in": "2026-07-02 09:12:57.919819",
+            "description": {
+                "cnpj": "21.532.334/0001-86",
+                "razao_social": "MX SOLUCOES LTDA",
+                "nome_fantasia": "MX SOLUCOES",
+                "data_criacao": "21/11/2014",
+                "situacao": "ATIVA",
+                "nome_socio": null
+            },
+            "type": "cartao_cnpj",
+            "extension": ".pdf"
+        },
+        {
+            "id": "8280c4b7-163e-4585-a97b-7c794f737ec9",
+            "created_in": "2026-07-02 09:13:02.270341",
+            "description": {
+                "placa": "ABC1D23",
+                "renavam": "12345678901",
+                "chassi": "9BWZZZ377VT004251",
+                "marca_modelo": "EXEMPLO MOTORS HATCH LX",
+                "ano_fabricacao": "2025",
+                "ano_modelo": "2026",
+                "combustivel": "FLEX",
+                "cor": "PRATA",
+                "categoria": "PARTICULAR",
+                "proprietario": "JOÃO DA SILVA EXEMPLO",
+                "cpf": "123.456.789-00",
+                "municipio": "CIDADE EXEMPLO/BR",
+                "licenciamento": "2026"
+            },
+            "type": "crlv_e",
+            "extension": ".odt"
+        },
+        {
+            "id": "3de466ef-cfe0-435c-891d-d219b2c673ce",
+            "created_in": "2026-07-02 09:13:27.618904",
+            "description": {
+                "cnpj": "21.532.334/0001-86",
+                "razao_social": "MX SOLUCOES LTDA",
+                "nome_fantasia": "MX SOLUCOES",
+                "data_criacao": "21/11/2014",
+                "situacao": "ATIVA",
+                "nome_socio": null
+            },
+            "type": "cartao_cnpj",
+            "extension": ".pdf"
+        },
+        {
+            "id": "9ffb4599-0033-4193-a6d5-359d2c16e4ef",
+            "created_in": "2026-07-02 09:14:43.968563",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": null,
+                "serie": null,
+                "cnpj_emitente": null,
+                "valor_total": null
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        },
+        {
+            "id": "a6be5553-22c8-4ae6-aead-c402676008c3",
+            "created_in": "2026-07-02 09:16:20.366652",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
         }
     ]
 }
