@@ -1243,6 +1243,68 @@
             },
             "type": "crlv_e",
             "extension": ".odt"
+        },
+        {
+            "id": "bdf409cf-1c35-4c56-a53d-5fc6d430beeb",
+            "created_in": "2026-07-02 15:19:55.631143",
+            "description": {
+                "cnpj": "21.532.334/0001-86",
+                "razao_social": "MX SOLUCOES LTDA",
+                "nome_fantasia": "MX SOLUCOES",
+                "data_criacao": "21/11/2014",
+                "situacao": "ATIVA",
+                "nome_socio": "MATHEUS JOSE CUCOLOTO DOS SANTOS"
+            },
+            "type": "cartao_cnpj",
+            "extension": ".pdf"
+        },
+        {
+            "id": "d6a3fb21-6fd3-48f7-8b7c-5aca0b90c8cf",
+            "created_in": "2026-07-02 15:20:09.715332",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        },
+        {
+            "id": "996ce976-6bb0-4bb9-91b6-7e8b96be5ab6",
+            "created_in": "2026-07-02 15:20:14.535201",
+            "description": {
+                "placa": "ABC1D23",
+                "renavam": "12345678901",
+                "chassi": "9BWZZZ377VT004251",
+                "marca_modelo": "EXEMPLO MOTORS HATCH LX",
+                "ano_fabricacao": "2025",
+                "ano_modelo": "2026",
+                "combustivel": "FLEX",
+                "cor": "PRATA",
+                "categoria": "PARTICULAR",
+                "proprietario": "JOÃO DA SILVA EXEMPLO",
+                "cpf": "123.456.789-00",
+                "municipio": "CIDADE EXEMPLO/BR",
+                "licenciamento": "2026"
+            },
+            "type": "crlv_e",
+            "extension": ".odt"
+        },
+        {
+            "id": "94c65c87-cb6d-43af-bb05-5d360ac9f14e",
+            "created_in": "2026-07-02 15:20:18.106131",
+            "description": {
+                "cnpj": "21.532.334/0001-86",
+                "razao_social": "MX SOLUCOES LTDA",
+                "nome_fantasia": "MX SOLUCOES",
+                "data_criacao": "21/11/2014",
+                "situacao": "ATIVA",
+                "nome_socio": "MATHEUS JOSE CUCOLOTO DOS SANTOS"
+            },
+            "type": "cartao_cnpj",
+            "extension": ".pdf"
         }
     ]
 }

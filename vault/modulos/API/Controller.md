@@ -69,7 +69,7 @@ Responsabilidades:
 
 # Salvar no JSON
 
-- O código cria uma entidade [[Models#Document document|Document]] a partir dos dados processados do documento. Em seguida, registra essa entidade no log, depois converte o objeto de dominio para uma Entidade de Persistencia[[Persistence e Repository#DocumentEntity document-entity|(DocumentEntity)]].  Carrega um banco JSON em memória e adiciona o novo documento na lista.  Por fim, salva o banco atualizado no disco.
+- O código cria uma entidade [[Models#Document document|Document]] a partir dos dados processados do documento. Em seguida, registra essa entidade no log, depois converte o objeto de dominio para uma Entidade de Persistencia[[Persistence e Repository#DocumentEntity document-entity|(DocumentEntity)]], carrega um banco JSON em memória e adiciona o novo documento na lista,por fim no JSON
 
 ````python
 	document = Document(
