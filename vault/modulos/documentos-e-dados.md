@@ -39,6 +39,6 @@ Arquivo ODT de exemplo. Deve ser usado com `OdtReader`, mas a rota HTTP atual na
 Os dados de exemplo se relacionam com:
 
 - [[fluxo/fluxo-http-atual]];
-- [[fluxo/fluxo-caso-de-uso-pretendido]];
+- [[Fluxo caso de Uso]];
 - [[dependencias/dependencias]].
 

@@ -14,7 +14,7 @@ Cliente HTTP
 
 ### API
 
-Documentada em [[modulos/api]].
+Documentada em [[Main]].
 
 Responsavel por protocolo HTTP, upload de arquivo e retorno da resposta. A API nao deveria conter regra de negocio pesada; ela deveria delegar para casos de uso.
 

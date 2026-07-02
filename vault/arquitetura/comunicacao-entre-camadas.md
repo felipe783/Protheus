@@ -36,7 +36,7 @@ file_content + filename
   -> resposta com document_type e data
 ```
 
-Ver [[fluxo/fluxo-caso-de-uso-pretendido]].
+Ver [[Fluxo caso de Uso]].
 
 ## Comunicacao com infraestrutura
 

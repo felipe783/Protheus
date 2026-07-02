@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "bf6efa02d0bd9255",
+        "id": "0e4dfc663a78b304",
         "type": "tabs",
         "children": [
           {
-            "id": "a5e121485138d0ed",
+            "id": "daf3374a1027bf30",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "modulos/API/Controller.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Controller"
             }
           }
         ]
@@ -40,7 +44,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "Explorador de arquivos"
             }
           },
           {
@@ -170,24 +174,48 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Criar nova base": false
     }
   },
-  "active": "a5e121485138d0ed",
+  "active": "daf3374a1027bf30",
   "lastOpenFiles": [
-    "modulos/domain.md",
-    "modulos/infrastructure.md",
-    "modulos/documentos-e-dados.md",
+    "modulos/Infraestrutura/Persistence e Repository.md",
+    "modulos/API/Controller.md",
+    "modulos/Infraestrutura/Factory.md",
+    "modulos/API/Main.md",
+    "modulos/Domain/Models.md",
+    "modulos/Sem título.md",
+    "modulos/Domain",
+    "modulos/Application/Detector e Extrator.md",
+    "modulos/Application/Inputs e Outputs.md",
+    "DTO.md",
+    "[Inputs e Outputs.md",
+    "[[Inputs e Outputs.md",
+    "modulos/Application/Inputs/DocumentInput.md",
+    "modulos/Application/Inputs",
+    "modulos/Application/Sem título.md",
+    "DTO(DocumentInput).md",
+    "modulos/Application",
+    "Estrutura.md",
     "glossary/glossary.md",
+    "modulos/Infraestrutura/Reader.md",
+    "modulos/Infraestrutura/Readers/PDF.md",
+    "modulos/Infraestrutura",
+    "modulos/infrastructure.md",
+    "modulos/API/Sem título",
+    "modulos/API",
+    "fluxo/Fluxo Execução.md",
+    "dependencias/dependencias.md",
+    "modulos/Infraestrutura/Readers",
+    "api/api-e-rotas.md",
     "modulos/application.md",
-    "modulos/api.md",
-    "setup/setup.md",
-    "index.md"
+    "modulos/testes.md",
+    "modulos/domain.md"
   ]
 }

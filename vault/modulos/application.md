@@ -68,7 +68,7 @@ Fluxo pretendido:
 5. Extrai dados.
 6. Retorna `{ "document_type": ..., "data": ... }`.
 
-Ver [[fluxo/fluxo-caso-de-uso-pretendido]].
+Ver [[Fluxo caso de Uso]].
 
 ## DTOs
 

@@ -45,7 +45,7 @@ python -m pytest -v
 
 ## Arquivos importantes para execucao
 
-- [[modulos/api|api/main.py]]
+- [[Main|api/main.py]]
 - [[api/api-e-rotas|api/routers/ControllerDocument.py]]
 - [[modulos/application|application/DocumentExtractor.py]]
 - [[modulos/core|core/DocumentPatternsRegex.py]]
