@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(circle at top left, #6d28d9 0, transparent 32%),
+    radial-gradient(circle at bottom right, #4c1d95 0, transparent 34%),
+    #1f1235;
+  color: #f5efff;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  width: min(90vw, 520px);
+  padding: 24px;
+  display: grid;
+  gap: 16px;
+  border: 1px solid #7c3aed;
+  border-radius: 8px;
+  background: rgba(31, 18, 53, 0.88);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #8b5cf6;
+  border-radius: 6px;
+  background: #3b1d63;
+  color: #f5efff;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: #a855f7;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #c084fc;
+  color: #241038;
+}
+
+#api-output {
+  min-height: 220px;
+  padding: 16px;
+  border: 2px solid #a78bfa;
+  border-radius: 6px;
+  background: #2d174d;
+  color: #ede9fe;
+}
+
+.emoji-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.emoji-bg span {
+  position: absolute;
+  font-size: 42px;
+  opacity: 0.22;
+  animation: float 8s ease-in-out infinite;
+}
+
+.emoji-bg span:nth-child(1) {
+  left: 12%;
+  top: 18%;
+}
+
+.emoji-bg span:nth-child(2) {
+  right: 14%;
+  top: 22%;
+  animation-delay: -2s;
+}
+
+.emoji-bg span:nth-child(3) {
+  left: 18%;
+  bottom: 16%;
+  animation-delay: -4s;
+}
+
+.emoji-bg span:nth-child(4) {
+  right: 22%;
+  bottom: 14%;
+  animation-delay: -1s;
+}
+
+.emoji-bg span:nth-child(5) {
+  left: 50%;
+  top: 10%;
+  animation-delay: -3s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-24px) rotate(8deg);
+  }
+}

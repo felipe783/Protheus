@@ -12,6 +12,84 @@
             },
             "type": "danfe_xml",
             "extension": ".xml"
+        },
+        {
+            "id": "be5232c3-8b66-4c99-893b-c18b96dca25e",
+            "created_in": "2026-07-02 07:35:56.692534",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        },
+        {
+            "id": "4dc5a66a-0cf5-4acf-bca8-11aa2cbe5d75",
+            "created_in": "2026-07-02 07:36:46.300045",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        },
+        {
+            "id": "4c40c97d-912e-48b8-86c5-4f8cf1861fa0",
+            "created_in": "2026-07-02 07:45:52.401806",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        },
+        {
+            "id": "b3f15bc1-1321-4377-abe9-8b48c00ffe8d",
+            "created_in": "2026-07-02 07:47:16.195126",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": null,
+                "serie": null,
+                "cnpj_emitente": null,
+                "valor_total": null
+            },
+            "type": "danfe_xml",
+            "extension": ".pdf"
+        },
+        {
+            "id": "84d2c366-1a4d-481a-ae53-13646aef81d3",
+            "created_in": "2026-07-02 07:49:14.765312",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": null,
+                "serie": null,
+                "cnpj_emitente": null,
+                "valor_total": null
+            },
+            "type": "danfe_xml",
+            "extension": ".pdf"
+        },
+        {
+            "id": "33c3d1e8-69d6-471a-bd92-afa350319685",
+            "created_in": "2026-07-02 07:49:53.447802",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": null,
+                "serie": null,
+                "cnpj_emitente": null,
+                "valor_total": null
+            },
+            "type": "danfe_xml",
+            "extension": ".pdf"
         }
     ]
 }

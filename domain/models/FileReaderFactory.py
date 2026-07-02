@@ -6,24 +6,28 @@ from infrastructure.readers.OdtReader import OdtReader
 
 class FileReaderFactory:
     @staticmethod
-    def create(extension: documentExtension):
+    def get(extension: documentExtension):
         match extension:
             
             case documentExtension.PDF:
+                print("pdf")
                 return PdfReader()
             
             case documentExtension.XML:
+                print("xml")
                 return XmlReader()
 
             case documentExtension.DOCX:
+                print("docx")
                 return DocxReader()
 
             case documentExtension.ODT:
+                print("odt")
                 return OdtReader()
 
             case _:
                 raise ValueError(
-                    f"Extensão não suportada: {extension}"
+                    f"Nenhum Reader pra extensão: {extension}"
                 )
             
 
