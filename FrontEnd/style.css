@@ -5,37 +5,74 @@
 body {
   margin: 0;
   min-height: 100vh;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  font-family: Arial, sans-serif;
-  background:
-    radial-gradient(circle at top left, #6d28d9 0, transparent 32%),
-    radial-gradient(circle at bottom right, #4c1d95 0, transparent 34%),
-    #1f1235;
-  color: #f5efff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #2e1065 0%, #4c1d95 45%, #6d28d9 100%);
+  color: #211336;
 }
 
-main {
-  position: relative;
-  z-index: 1;
-  width: min(90vw, 520px);
-  padding: 24px;
-  display: grid;
-  gap: 16px;
-  border: 1px solid #7c3aed;
+.output-box {
+  width: min(100%, 680px);
+  padding: 22px;
+  border: 1px solid #cbb5f6;
   border-radius: 8px;
-  background: rgba(31, 18, 53, 0.88);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(75, 35, 130, 0.2);
+}
+
+.output-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.output-top p {
+  margin: 0 0 6px;
+  color: #6d28d9;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.output-top h1 {
+  margin: 0;
+  color: #2e1457;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.output-top span {
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eadcff;
+  color: #5b21b6;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5f4b7a;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 input[type="file"] {
   width: 100%;
+  margin-bottom: 18px;
   padding: 10px;
-  border: 1px solid #8b5cf6;
+  border: 1px solid #bfa7ee;
   border-radius: 6px;
-  background: #3b1d63;
-  color: #f5efff;
+  background: #fbf8ff;
+  color: #211336;
   cursor: pointer;
 }
 
@@ -44,76 +81,78 @@ input[type="file"]::file-selector-button {
   padding: 10px 14px;
   border: 0;
   border-radius: 6px;
-  background: #a855f7;
+  background: #7c3aed;
   color: #ffffff;
   font-weight: 700;
   cursor: pointer;
 }
 
 input[type="file"]::file-selector-button:hover {
-  background: #c084fc;
-  color: #241038;
+  background: #5b21b6;
 }
 
 #api-output {
-  min-height: 220px;
-  padding: 16px;
-  border: 2px solid #a78bfa;
+  min-height: 320px;
+  max-height: 520px;
+  margin: 0;
+  padding: 18px;
+  overflow: auto;
   border-radius: 6px;
-  background: #2d174d;
-  color: #ede9fe;
+  border: 1px solid #cbb5f6;
+  background: #fbf8ff;
+  color: #211336;
+  font-size: 15px;
 }
 
-.emoji-bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
+#api-output::selection {
+  background: #c084fc;
+  color: #211336;
 }
 
-.emoji-bg span {
-  position: absolute;
-  font-size: 42px;
-  opacity: 0.22;
-  animation: float 8s ease-in-out infinite;
+.info-grid {
+  display: grid;
+  gap: 12px;
 }
 
-.emoji-bg span:nth-child(1) {
-  left: 12%;
-  top: 18%;
+.info-item {
+  padding: 14px;
+  border: 1px solid #d8c2ff;
+  border-left: 4px solid #7c3aed;
+  border-radius: 6px;
+  background: #ffffff;
 }
 
-.emoji-bg span:nth-child(2) {
-  right: 14%;
-  top: 22%;
-  animation-delay: -2s;
+.info-item span {
+  display: block;
+  margin-bottom: 6px;
+  color: #6b5a80;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
-.emoji-bg span:nth-child(3) {
-  left: 18%;
-  bottom: 16%;
-  animation-delay: -4s;
+.info-item span::after {
+  content: ":";
 }
 
-.emoji-bg span:nth-child(4) {
-  right: 22%;
-  bottom: 14%;
-  animation-delay: -1s;
+.info-item strong {
+  display: block;
+  color: #2e1457;
+  font-size: 18px;
+  line-height: 1.35;
+  word-break: break-word;
 }
 
-.emoji-bg span:nth-child(5) {
-  left: 50%;
-  top: 10%;
-  animation-delay: -3s;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
+@media (max-width: 760px) {
+  body {
+    padding: 16px;
   }
 
-  50% {
-    transform: translateY(-24px) rotate(8deg);
+  .output-box {
+    padding: 16px;
+  }
+
+  #api-output {
+    min-height: 280px;
   }
 }
