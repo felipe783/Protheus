@@ -222,6 +222,75 @@
             },
             "type": "cartao_cnpj",
             "extension": ".pdf"
+        },
+        {
+            "id": "a6849007-7bd6-4240-962e-1fd49c2893a3",
+            "created_in": "2026-07-02 08:57:12.134657",
+            "description": {
+                "cnpj": "21.532.334/0001-86",
+                "razao_social": "MX\tSOLUCOES\tLTDA",
+                "nome_fantasia": "MX\tSolucoes",
+                "data_criacao": "21/11/2014",
+                "situacao": "ATIVA",
+                "nome_socio": "DATA\tDE\tENTRADA\nPAÍS\nMatheus\tJose\tCucoloto\tdos\tSantos"
+            },
+            "type": "cartao_cnpj",
+            "extension": ".pdf"
+        },
+        {
+            "id": "0532be15-0f5a-4a71-adf4-e15c5bec1766",
+            "created_in": "2026-07-02 08:57:35.162129",
+            "description": {
+                "cnpj": "21.532.334/0001-86",
+                "razao_social": "MX SOLUCOES LTDA",
+                "nome_fantasia": "MX Solucoes",
+                "data_criacao": "21/11/2014",
+                "situacao": "ATIVA",
+                "nome_socio": "DATA DE ENTRADA PAÍS Matheus Jose Cucoloto dos Santos"
+            },
+            "type": "cartao_cnpj",
+            "extension": ".pdf"
+        },
+        {
+            "id": "9188bb60-2228-41bd-9562-e5638e9c48bb",
+            "created_in": "2026-07-02 08:57:51.661485",
+            "description": {
+                "chave_acesso": null,
+                "numero_nota": "1",
+                "serie": "1",
+                "cnpj_emitente": "99999090910270",
+                "valor_total": "20000000.00"
+            },
+            "type": "danfe_xml",
+            "extension": ".xml"
+        },
+        {
+            "id": "a4107612-6284-4be4-9a1b-9558ec676324",
+            "created_in": "2026-07-02 08:58:21.940618",
+            "description": {
+                "cnpj": "21.532.334/0001-86",
+                "razao_social": "MX SOLUCOES LTDA",
+                "nome_fantasia": "MX Solucoes",
+                "data_criacao": "21/11/2014",
+                "situacao": "ATIVA",
+                "nome_socio": "DATA DE ENTRADA PAÍS Matheus Jose Cucoloto dos Santos"
+            },
+            "type": "cartao_cnpj",
+            "extension": ".pdf"
+        },
+        {
+            "id": "9e4d2ed3-8ed6-42f8-bb35-190f959fcb02",
+            "created_in": "2026-07-02 08:59:20.950470",
+            "description": {
+                "cnpj": "21.532.334/0001-86",
+                "razao_social": "MX SOLUCOES LTDA",
+                "nome_fantasia": "MX Solucoes",
+                "data_criacao": "21/11/2014",
+                "situacao": "ATIVA",
+                "nome_socio": "Matheus Jose Cucoloto dos Santos"
+            },
+            "type": "cartao_cnpj",
+            "extension": ".pdf"
         }
     ]
 }

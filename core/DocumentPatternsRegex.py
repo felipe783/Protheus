@@ -14,7 +14,7 @@ CNPJ_PATTERNS = {
     "nome_fantasia": r"TÍTULO\s*DO\s*ESTABELECIMENTO.*?\n([\s\S]*?)\s*PORTE", 
     "data_criacao": r"DATA\s*DE\s*ABERTURA\s*([\d]{2}/[\d]{2}/[\d]{4})", 
     "situacao": r"SITUAÇÃO\s*CADASTRAL\s*(ATIVA|BAIXADA|SUSPENSA|INAPTA|NULA)", 
-    "nome_socio": r"QSA[\s\S]*?\n([A-Za-zÀ-ÿ\s]+?)\s+Sócio-Administrador"
+    "nome_socio": r"([^\n\r]+)\s+Sócio-Administrador"
 }
 
 CRLV_PATTERNS = {
