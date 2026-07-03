@@ -1,7 +1,7 @@
 # Sobre os arquivos^document
 
 O arquivo ``Document`` define a classe `Document`, que representa a **entidade de um documento** dentro do sistema, reunindo todas as informações relacionadas a um documento processado, e com isso o arquivo [[Document Model e UUID#Document UUID uuid|Document UUID]] define seu UUID
-# Document
+# Document^model-doc
 ## Funcionalidade
 
 Primeiramente, a classe é definida utilizando a anotação `@dataclass`, que gera automaticamente alguns métodos especiais, como por exemplo:
