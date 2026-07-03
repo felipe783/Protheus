@@ -19,8 +19,8 @@ class DocumentTypeDetector:
                 return documentType.DANFE_XML
 
             return documentType.DESCONHECIDO
+        
         scores = {}
-
         for doc_type, keywords in KEY_WORDS.items():
             score = 0
             for keyword in keywords:

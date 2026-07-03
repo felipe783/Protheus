@@ -54,5 +54,5 @@ Impacto: os testes podem nao isolar o banco real como esperado.
 
 ## Dependencias sem manifesto
 
-Nao foi encontrado `requirements.txt` ou `pyproject.toml`. As dependencias foram inferidas por imports. Veja [[dependencias/dependencias]].
+Nao foi encontrado `requirements.txt` ou `pyproject.toml`. As dependencias foram inferidas por imports. Veja [[Dependencias]].
 

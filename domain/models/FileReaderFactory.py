@@ -26,23 +26,4 @@ class FileReaderFactory:
                 return OdtReader()
 
             case _:
-                raise ValueError(
-                    f"Nenhum Reader pra extensão: {extension}"
-                )
-            
-
-"""
-Arquivo
- ↓
-FileReaderFactory
- ↓
-Conteúdo
- ↓
-DocumentDetector
- ↓
-DocumentType
- ↓
-DocumentExtractorFactory
- ↓
-Dados extraídos
-"""
+                raise ValueError(f"Nenhum Reader pra extensão: {extension}")

@@ -1,9 +1,6 @@
-# Modulo Controller
+# Sobre o Arquivo
 
-O modulo `controller` é o **Orquestrador das Requisições** é nele onde são feitas as principais chamadas entre os arquivos.
-# Arquivo
-
-### `api/routers/ControllerDocument.py`
+O Arquivo `controller` é o **Orquestrador das Requisições** é nele onde são feitas as principais chamadas entre os arquivos.
 
 Responsabilidades:
 - criar o `Endpoint`
@@ -37,7 +34,7 @@ Responsabilidades:
 ````
 # Filtragem por Factory
 
-- Com o arquivo temporário criado, o "controller" aciona a [[Factory]], que seleciona o [[Reader]] adequado para cada extensão. Em seguida, o "reader" processa o arquivo e realiza a extração do conteúdo, convertendo-o para texto puro.
+- Com o arquivo temporário criado, o "controller" aciona a [[Factory]], que seleciona o [[Reader PDF]] adequado para cada extensão. Em seguida, o "reader" processa o arquivo e realiza a extração do conteúdo, convertendo-o para texto puro.
 
 ````python
 	try:
@@ -49,7 +46,7 @@ Responsabilidades:
 
 # Extração das Informações
 
-- Com a ``Factory`` e o ``Reader`` selecionados, o arquivo passa por uma etapa de análise para identificar seu tipo por meio da função `detect` do [[Detector e Extrator |"DocumentTypeDetector.py"]].Com o tipo já definido, os dados são encapsulados em um [[Inputs e Outputs#Document input input-doc |DTO de Input]]. Em seguida, esse contexto é utilizado pelo [[Detector e Extrator#DocumentExtractor extractor|DocumentExtractor]] para realizar a extração e processamento do conteúdo do documento.
+- Com a ``Factory`` e o ``Reader`` selecionados, o arquivo passa por uma etapa de análise para identificar seu tipo por meio da função `detect` do [[Extrator e Detector|"DocumentTypeDetector.py"]].Com o tipo já definido, os dados são encapsulados em um [[Inputs e Outputs#Document input input-doc |DTO de Input]]. Em seguida, esse contexto é utilizado pelo [[Extrator e Detector#DocumentExtractor extractor|DocumentExtractor]] para realizar a extração e processamento do conteúdo do documento.
 
 ````python
 	documentType = DocumentTypeDetector.detect(
@@ -69,7 +66,7 @@ Responsabilidades:
 
 # Salvar no JSON
 
-- O código cria uma entidade [[Models#Document document|Document]] a partir dos dados processados do documento. Em seguida, registra essa entidade no log, depois converte o objeto de dominio para uma Entidade de Persistencia[[Persistence e Repository#DocumentEntity document-entity|(DocumentEntity)]], carrega um banco JSON em memória e adiciona o novo documento na lista,por fim no JSON
+- O código cria uma entidade [[Models#Document document|Document]] a partir dos dados processados do documento. Em seguida, registra essa entidade no log, depois converte o objeto de dominio para uma Entidade de Persistencia[[JSON Repository#DocumentEntity document-entity|(DocumentEntity)]], carrega um banco JSON em memória e adiciona o novo documento na lista,por fim no JSON
 
 ````python
 	document = Document(

@@ -57,9 +57,9 @@ Protheus/
 ## Pastas
 
 - `api/`: entrada HTTP. Ver [[Main]].
-- `routers/`: rotas da API, Ver [[Controller]]
-- `application/`: casos de uso, detectores e extrator. Ver [[modulos/application]].
-- `core/`: configuracoes e constantes transversais. Ver [[modulos/core]].
-- `domain/`: modelos e interfaces. Ver [[modulos/domain]].
-- `infrastructure/`: implementacoes tecnicas. Ver [[modulos/infrastructure]].
+- `routers/`: rotas da API, Ver [[!Modulo API]]
+- `application/`: casos de uso, detectores e extrator. Ver [[!Modulo Application]].
+- `core/`: configuracoes e constantes transversais. Ver [[!Modulo Core]].
+- `domain/`: modelos e interfaces. Ver [[!Modulo Domain]].
+- `infrastructure/`: implementacoes tecnicas. Ver [[!Modulo Insfraestrutura]].
 

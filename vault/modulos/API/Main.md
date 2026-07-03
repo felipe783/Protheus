@@ -1,9 +1,6 @@
-# Modulo main
+# Sobre o Arquivo
 
-O modulo `main` e a borda HTTP do sistema.
-## Arquivo
-
-### `api/main.py`
+O Arquivo `main` é a **Borda HTTP do Sistema**, sendo responsável por iniciar a aplicação, realizar as configurações necessárias e expor os endpoints da API para atender às requisições dos clientes.
 
 Responsabilidades:
 - criar `app = FastAPI()`;
