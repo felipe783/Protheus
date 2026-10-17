@@ -46,6 +46,7 @@ python -m pytest -v                       # testes
 ```
 
 > Os caminhos do banco e do log são **relativos**: rode a API a partir da raiz do projeto.
+> Em 2026-10-17 a `.venv` tinha `fastapi 0.138`, `uvicorn 0.49`, `python-multipart`, `python-docx`, `odfpy` e `pypdf 6.14`, mas **não** tinha `pytest`; os testes nunca foram executados.
 
 ## Mapa das notas
 
@@ -65,7 +66,7 @@ python -m pytest -v                       # testes
 
 Encontrados lendo o código em 2026-10-17. **Nada foi executado** para confirmar.
 
-- O [[Controller]] orquestra tudo; o `ExtractDocumentUseCase` chama métodos inexistentes (`create`, `read`).
+- O [[Controller]] orquestra tudo; o `ExtractDocumentUseCase` chama métodos inexistentes (`create`, `read`); os reais são `get` e `extract`.
 - O [[JSON Repository]] não é usado e tem imports de módulo em vez de classe.
 - `JsonRepositoryDeps` usa um `DB_PATH` relativo próprio e ignora `core/dbPathConfig.py`. Por isso o `monkeypatch` dos testes não tem efeito, e `test_save_and_get_db` provavelmente grava no `db.json` real.
 - `test_log.py` espera a mensagem "Salvo com sucesso", mas `save_db` não registra log: provavelmente falha.

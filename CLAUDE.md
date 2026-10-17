@@ -50,7 +50,7 @@ cd FrontEnd; python -m http.server 5500  # front em http://localhost:5500 (outro
 python -m pytest -v                      # testes
 ```
 
-Estado do ambiente (2026-10-17): a `.venv` tem `fastapi 0.138`, `uvicorn 0.49`, `python-multipart`, `python-docx`, `odfpy` e `pypdf 6.14`, mas **não tem `pytest`**. **Peça autorização antes de instalar.** Os testes nunca foram executados nesta documentação.
+**Peça autorização antes de instalar dependências.** O que a `.venv` tinha na última verificação está no "Como rodar" do índice.
 
 ## Regras deste projeto
 
@@ -65,12 +65,7 @@ Estado do ambiente (2026-10-17): a `.venv` tem `fastapi 0.138`, `uvicorn 0.49`, 
 
 ## Armadilhas conhecidas
 
-- `ExtractDocumentUseCase` chama `FileReaderFactory.create(...)` e `reader.read(...)`, que não existem (os métodos reais são `get` e `extract`).
-- `JsonDocumentRepository` não é usado e importa módulos em vez das classes.
-- O `monkeypatch` dos testes em `core.dbPathConfig.DB_PATH` não tem efeito, porque `JsonRepositoryDeps` define o próprio `DB_PATH`. Por isso `test_save_and_get_db` provavelmente grava no `db.json` real.
-- `test_log.py` espera o log "Salvo com sucesso", que `save_db` não emite.
-- O temporário é criado com `suffix=f".{extension.value}"`, e como o valor já tem ponto, o resultado é `..pdf`.
-- A `FileReaderFactory` tem `print()` ativos.
+Estão em **Problemas conhecidos** do índice importado acima (`vault/_Protheus.md`), que é a única lista mantida.
 
 ## Manter a documentação
 
