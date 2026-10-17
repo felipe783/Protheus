@@ -35,3 +35,6 @@ O método `fromDomain()` realiza o processo inverso, convertendo o modelo de dom
             extension= document.extension
         )
 ````
+
+---
+**Projeto Pai:** [[_Protheus]] · **Módulo:** [[!Modulo Insfraestrutura]]

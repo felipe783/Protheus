@@ -48,3 +48,6 @@ def save_db(data: dict) -> None:
     with open(DB_PATH, "w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=4, default=str) #Dict -> JSON
 ````
+
+---
+**Projeto Pai:** [[_Protheus]] · **Módulo:** [[!Modulo Insfraestrutura]]

@@ -20,3 +20,6 @@ Hierarquia dos Níveis
 | `WARNING`  | Situações inesperadas, mas que não interrompem o programa. |
 | `ERROR`    | Erros que impedem uma operação de ser concluída.           |
 | `CRITICAL` | Erros muito graves que podem interromper a aplicação.      |
+
+---
+**Projeto Pai:** [[_Protheus]] · **Módulo:** [[!Modulo Core]]
