@@ -17,14 +17,16 @@ class documentType(str, Enum):
 
 # Document Extension ^extension
 
-É um enum `documentExtension` representa a **classificação lógica da extensão documento**, independentemente do formato do arquivo.
+É um enum `documentExtension` que representa as **extensões de arquivo suportadas**. O valor de cada membro já inclui o ponto (`".pdf"`), porque é comparado diretamente com `Path(filename).suffix` no `DocumentExtensionDetector`.
 
 ````python
-class documentType(str, Enum):
-    CRLV_E = "crlv_e"
-    CARTAO_CNPJ = "cartao_cnpj"
-    DANFE_XML = "danfe_xml"
-    LAUDO = "laudo"
-    CONTRATO = "contrato"
-    DESCONHECIDO = "desconhecido"
+class documentExtension(str, Enum):
+    PDF = ".pdf"
+    XML = ".xml"
+    DOCX = ".docx"
+    ODT = ".odt"
+    DESCONHECIDO = ""
 ````
+
+> [!note] Efeito colateral do ponto no valor
+> O [[Controller]] cria o temporário com `suffix=f".{extension.value}"`, o que gera `arquivo..pdf` (dois pontos). Funciona porque os readers não dependem do nome do arquivo, mas o ponto extra é redundante.

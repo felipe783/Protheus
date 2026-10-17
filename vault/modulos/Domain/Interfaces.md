@@ -24,3 +24,11 @@ class XmlReader(FileReader):
 class DocxReader(FileReader):
     ...
 ````
+
+> [!note] Classes vazias no mesmo arquivo
+> `PdfReader`, `XmlReader` e `DocxReader` com `...` estão **de fato** em `domain/interfaces/FileReader.py`, duplicando os nomes das implementações reais em `infrastructure/readers/`. Não causam erro porque a [[Factory]] importa as de `infrastructure`, mas podem confundir.
+
+# Outras interfaces
+
+- `DocumentRepository`: contrato com `save(document)`. Implementado por [[JSON Repository]].
+- `DocumentExtractor` (interface): `extract(self, content) -> dict`. **Não é implementada** pelo `DocumentExtractor` da camada Application, que é uma classe com método estático e assinatura diferente (`extract(content, document_type)`).

@@ -53,6 +53,13 @@ Protheus/
 	|     |--OdtReader.py
 	|     |--PdfReader.py
 	|     |--XmlReader.py
+	📁 docs              ← documentação de arquitetura (.md)
+	📁 test
+	|  |--test_db.py
+	|  |--test_log.py
+	📁 vault             ← esta documentação (Obsidian); índice em _Protheus
+	|--requiriments.txt  ← dependências (nome com erro de digitação)
+	|--test.xml / test2.pdf / test3.odt  ← arquivos de exemplo
 ```
 ## Pastas
 

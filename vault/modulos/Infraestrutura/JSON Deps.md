@@ -2,6 +2,9 @@
 
 Este arquivo é responsável por implementar uma camada simples de persistência baseada em arquivo JSON
 
+> [!note] Caminho do banco
+> O arquivo define o próprio `DB_PATH = Path("infrastructure/db/db.json")`, **relativo ao diretório de execução**. Existe um `core/dbPathConfig.py` com um caminho absoluto baseado em `__file__`, mas ele não é importado aqui. Consequência: os testes que fazem `monkeypatch` em `core.dbPathConfig.DB_PATH` não alteram o caminho usado por `get_db`/`save_db`.
+
 # Funcionalidade
 
 ## Função `get_db`

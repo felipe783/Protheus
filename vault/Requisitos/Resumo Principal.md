@@ -23,11 +23,33 @@ A extração varia conforme o tipo e a extensão do arquivo:
 > [[Reader DOCX]]
 - **ODT** — leitura feita com a biblioteca `odfpy` (módulo `odf`). 
 > [[Reader ODT]]
-- **XML (DANFE/NFe)** — os arquivos XML de NFe seguem o schema fixo definido pela SEFAZ, com tags padronizadas. A leitura é feita com a biblioteca padrão `xml.etree.ElementTree`, sem necessidade de bibliotecas externas como `lxml`. 
+- **XML (DANFE/NFe)** — os arquivos XML de NFe seguem o schema fixo definido pela SEFAZ, com tags padronizadas. Hoje o XML **não é parseado**: o [[Reader XML]] apenas decodifica os bytes como texto (UTF-8, com fallback para Latin-1) e os campos são extraídos com Regex diretamente sobre as tags (ex.: `<chNFe>(\d{44})</chNFe>`). O parsing estruturado com `xml.etree.ElementTree` é o que o [[RF 04]] pede, mas ainda não foi implementado.
 >  [[Reader XML]]
 
 Para os documentos cujo conteúdo segue um padrão textual previsível — **Cartão CNPJ**, **NFe** e **CRLV** — a extração dos campos é feita por meio de [Regex](https://regexr.com/) aplicadas sobre o texto extraído de cada arquivo, independentemente da extensão de origem (PDF, DOCX ou ODT).
 
+> [!warning] Laudos e contratos
+> `LAUDO` e `CONTRATO` existem no enum e têm [[KeyWords]], então podem ser **classificados**, mas não têm [[Patterns]]: o `DocumentExtractor` retorna `{}` para eles. A extração desses tipos ainda está planejada ([[RF 02]]).
+
 **Referências de exemplo (estrutura de XML/DANFE):**
 - [Exemplo de XML/DANFE](https://www.webdanfe.com.br/danfe/ExemploXml.html)
 - [Exemplos de XML e DANFE de NF-e](https://www.devmedia.com.br/nf-e-exemplos-de-xml-e-danfe/21148)
+
+## Fluxo Geral de Processamento
+
+1. O usuário envia um documento por meio de uma requisição HTTP.
+    
+2. O [[Controller]] (`POST /document/extract`) recebe o arquivo e **orquestra todo o fluxo** — hoje é ele, e não um caso de uso da camada Application, que chama cada etapa.
+    
+3. O `DocumentExtensionDetector` identifica a extensão e o arquivo é gravado em um temporário.
+    
+4. A [[Factory]] devolve o reader da extensão, que extrai o conteúdo como texto.
+    
+5. O `DocumentTypeDetector` classifica o tipo (tags `<nfe>`/`<infnfe>` para XML, pontuação por [[KeyWords]] para os demais).
+    
+6. O `DocumentExtractor` aplica os [[Patterns]] Regex do tipo detectado (inclusive no XML).
+    
+7. O controller monta o `Document`, grava no log e salva no `db.json` chamando `get_db`/`save_db` diretamente (o [[JSON Repository]] não é usado), e retorna o `dict` extraído.
+
+> [!note] Caso de uso não utilizado
+> Existe `application/ExtractDocumentUseCase.py`, mas ele não é chamado e está quebrado: usa `FileReaderFactory.create` e `reader.read`, que não existem (os métodos reais são `get` e `extract`). Ver [[!Modulo Application]].

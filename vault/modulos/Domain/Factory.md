@@ -11,6 +11,7 @@ Responsabilidade:
 - O método `get` é estático (`@staticmethod`)
 - Recebe como parâmetro a [[Document Type e Extension#Document Extension extension|documentExtension]]
 - Utiliza um Match-Case para decidir qual reader ira instanciar
+- No código atual os `print("pdf")`, `print("xml")` etc. estão **ativos** (o trecho abaixo os mostra comentados); o ideal seria trocá-los por `logging.debug`.
 
 `````python
 class FileReaderFactory:
