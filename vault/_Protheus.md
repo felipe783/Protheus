@@ -66,12 +66,12 @@ python -m pytest -v                       # testes
 
 Encontrados lendo o código em 2026-10-17. **Nada foi executado** para confirmar.
 
-- O [[Controller]] orquestra tudo; o `ExtractDocumentUseCase` chama métodos inexistentes (`create`, `read`); os reais são `get` e `extract`.
+- O [[Controller]] orquestra tudo; o `ExtractDocumentUseCase` chama `FileReaderFactory.create(...)` e `reader.read(...)`, que não existem; os reais são `get` e `extract`.
 - O [[JSON Repository]] não é usado e tem imports de módulo em vez de classe.
 - `JsonRepositoryDeps` usa um `DB_PATH` relativo próprio e ignora `core/dbPathConfig.py`. Por isso o `monkeypatch` dos testes não tem efeito, e `test_save_and_get_db` provavelmente grava no `db.json` real.
 - `test_log.py` espera a mensagem "Salvo com sucesso", mas `save_db` não registra log: provavelmente falha.
-- O sufixo do temporário fica `..pdf`, porque o valor do enum já tem o ponto.
-- `print()` ativos na [[Factory]].
+- O sufixo do temporário (`suffix=f".{extension.value}"` no controller) fica `..pdf`, porque o valor do enum já tem o ponto.
+- `print()` ativos na `FileReaderFactory` ([[Factory]]).
 - `requiriments.txt` tem o nome com erro de digitação.
 
 ## Decisões
