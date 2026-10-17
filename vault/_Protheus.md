@@ -1,9 +1,14 @@
 ---
-projeto: Protheus
-status: em desenvolvimento
-stack: [Python, FastAPI, pypdf, python-docx, odfpy]
-codigo: raiz do repositório (local: E:\Downloads\!Faculdade\Protheus)
-atualizado: 2026-10-17
+Projeto: Protheus
+Status: em desenvolvimento
+Stack:
+  - Python
+  - FastAPI
+  - pypdf
+  - python-docx
+  - odfpy
+Codigo: "E:/Downloads/!Faculdade/Protheus"
+Atualizado: 2026-10-17
 ---
 # Protheus
 
