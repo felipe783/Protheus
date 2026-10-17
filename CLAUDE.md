@@ -22,6 +22,8 @@ O índice abaixo é carregado em toda sessão. As notas detalhadas ficam em `vau
 
 Há também textos de arquitetura em `docs/` (guias genéricos de Clean Architecture + DDD). Para o estado real, o `vault/` prevalece.
 
+Conceitos transversais (camadas, caminhos, testes, persistência, erros e logs…), com aprendizados deste e de outros projetos: `E:/Downloads/!Faculdade/Contexto Projetos/Conhecimento/_Conhecimento.md`. Leia sob demanda, quando a tarefa tocar o assunto.
+
 ## Mapa do código
 
 - `api/main.py`: cria o `FastAPI`, configura o CORS (`localhost:5500` e `127.0.0.1:5500`) e registra o router.
