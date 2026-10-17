@@ -80,7 +80,7 @@ Ao alterar comportamento, atualize na mesma tarefa:
 3. `vault/Estrutura.md`, se arquivos forem criados, movidos ou removidos.
 
 Convenções do vault (o mesmo do Obsidian em `Contexto Projetos/Protheus`, via junction):
-- Frontmatter começando na linha 1, chaves `Projeto`/`Status`/`Stack`/`Codigo`/`Atualizado`, e valores com `:`, `\` ou `!` entre aspas.
+- Frontmatter começando na linha 1, chaves `Projeto`/`Status`/`Stack`/`Codigo`/`Repositorio`/`Atualizado`, e valores com `:`, `\` ou `!` entre aspas.
 - As notas do Protheus usam nomes curtos (`Main`, `Controller`, `Factory`…). Notas novas não podem repetir nomes já usados em outros projetos do vault.
 - Formato das notas de módulo: `# Sobre o Arquivo` → `Responsabilidade:` → `# Funcionalidade(s)` com trechos ````python e callouts `> [!warning]` para divergências.
 - Separe o que foi **executado** do que foi **lido no código**, com data.

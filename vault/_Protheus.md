@@ -8,6 +8,7 @@ Stack:
   - python-docx
   - odfpy
 Codigo: "E:/Downloads/!Faculdade/Protheus"
+Repositorio: "https://github.com/felipe783/Protheus"
 Atualizado: 2026-10-17
 ---
 # Protheus
