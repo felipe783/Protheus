@@ -61,7 +61,7 @@ python -m pytest -v                       # testes
   - [[!Modulo Application (Protheus)|!Modulo Application]]: detectores, extrator, DTOs.
   - [[!Modulo Domain (Protheus)|!Modulo Domain]]: enums, entidade, interfaces, factory.
   - [[!Modulo Core (Protheus)|!Modulo Core]]: keywords, regex, logging, paths.
-  - [[!Modulo Infraestrutura (Protheus)|!Modulo Insfraestrutura]]: readers e persistência JSON.
+  - [[!Modulo Infraestrutura (Protheus)|!Modulo Infraestrutura]]: readers e persistência JSON.
 
 ## Problemas conhecidos
 

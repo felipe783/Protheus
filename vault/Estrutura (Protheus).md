@@ -68,5 +68,5 @@ Protheus/
 - `application/`: casos de uso, detectores e extrator. Ver [[!Modulo Application (Protheus)|!Modulo Application]].
 - `core/`: configuracoes e constantes transversais. Ver [[!Modulo Core (Protheus)|!Modulo Core]].
 - `domain/`: modelos e interfaces. Ver [[!Modulo Domain (Protheus)|!Modulo Domain]].
-- `infrastructure/`: implementacoes tecnicas. Ver [[!Modulo Infraestrutura (Protheus)|!Modulo Insfraestrutura]].
+- `infrastructure/`: implementacoes tecnicas. Ver [[!Modulo Infraestrutura (Protheus)|!Modulo Infraestrutura]].
 

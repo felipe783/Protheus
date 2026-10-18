@@ -37,4 +37,4 @@ O método `fromDomain()` realiza o processo inverso, convertendo o modelo de dom
 ````
 
 ---
-**Projeto Pai:** [[_Protheus]] · **Módulo:** [[!Modulo Infraestrutura (Protheus)|!Modulo Insfraestrutura]]
+**Projeto Pai:** [[_Protheus]] · **Módulo:** [[!Modulo Infraestrutura (Protheus)|!Modulo Infraestrutura]]

@@ -50,4 +50,4 @@ def save_db(data: dict) -> None:
 ````
 
 ---
-**Projeto Pai:** [[_Protheus]] · **Módulo:** [[!Modulo Infraestrutura (Protheus)|!Modulo Insfraestrutura]]
+**Projeto Pai:** [[_Protheus]] · **Módulo:** [[!Modulo Infraestrutura (Protheus)|!Modulo Infraestrutura]]

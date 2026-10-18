@@ -21,7 +21,7 @@ O Protheus e um sistema de extração e classificação de documentos. O fluxo p
 - [[!Modulo Application (Protheus)|!Modulo Application]]: detectores, extrator e caso de uso.
 - [[!Modulo Domain (Protheus)|!Modulo Domain]]: enums, entidades e interfaces.
 - [[!Modulo Core (Protheus)|!Modulo Core]]: constantes, regex, keywords, paths e logging.
-- [[!Modulo Infraestrutura (Protheus)|!Modulo Insfraestrutura]]: leitores de arquivos e persistencia JSON.
+- [[!Modulo Infraestrutura (Protheus)|!Modulo Infraestrutura]]: leitores de arquivos e persistencia JSON.
 
 
 [[Dependencias (Protheus)|Dependencias]]
