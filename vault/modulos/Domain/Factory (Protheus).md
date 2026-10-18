@@ -11,7 +11,8 @@ Responsabilidade:
 - O método `get` é estático (`@staticmethod`)
 - Recebe como parâmetro a [[Document Type e Extension#Document Extension|documentExtension]]
 - Utiliza um Match-Case para decidir qual reader ira instanciar
-- No código atual os `print("pdf")`, `print("xml")` etc. estão **ativos** (o trecho abaixo os mostra comentados); o ideal seria trocá-los por `logging.debug`.
+- Cada `case` registra `logging.debug("Reader escolhido: ...")`; os antigos `print()` foram trocados em 2026-10-18.
+- Violação de camadas conhecida: a factory fica em `domain/models`, mas importa os readers de `infrastructure`.
 
 `````python
 class FileReaderFactory:
@@ -20,19 +21,19 @@ class FileReaderFactory:
     def get(extension: documentExtension):
         match extension:
             case documentExtension.PDF:
-                #print("pdf")
+                logging.debug("Reader escolhido: pdf")
                 return PdfReader()
 
             case documentExtension.XML:
-                #print("xml")
+                logging.debug("Reader escolhido: xml")
                 return XmlReader()
 
             case documentExtension.DOCX:
-                #print("docx")
+                logging.debug("Reader escolhido: docx")
                 return DocxReader()
 
             case documentExtension.ODT:
-                #print("odt")
+                logging.debug("Reader escolhido: odt")
                 return OdtReader()
 
             case _:

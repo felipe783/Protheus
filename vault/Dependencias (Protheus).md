@@ -35,8 +35,13 @@ Utilizada para leitura e extração de texto de arquivos PDF, além de operaçõ
 pip install pypdf
 ````
 
+[**pytest**](https://docs.pytest.org/)
+Executa os testes de `test/` (`python -m pytest -v`).
+````
+pip install pytest
+````
 
 Instalar tudo de uma vez:
 ````
-pip install fastapi uvicorn python-multipart python-docx odfpy pypdf
+pip install -r requiriments.txt
 ````

@@ -10,7 +10,7 @@ Stack:
   - odfpy
 Codigo: "Protheus"
 Repositorio: "https://github.com/felipe783/Protheus"
-Atualizado: 2026-10-17
+Atualizado: 2026-10-18
 ---
 # Protheus
 
@@ -28,12 +28,13 @@ Sistema de **extração e classificação de documentos**. Recebe um arquivo via
 | Leitura de texto por extensão ([[Factory (Protheus)|Factory]] + readers) | Implementado |
 | Classificação por palavras-chave ([[KeyWords (Protheus)|KeyWords]]) | Implementado |
 | Extração Regex de CRLV-e, Cartão CNPJ e NF-e ([[Patterns (Protheus)|Patterns]]) | Implementado |
-| Persistência em JSON | Implementado (direto no controller) |
+| Persistência em JSON | Implementado (via [[JSON Repository]]) |
 | Frontend estático (`FrontEnd/`) | Implementado |
 | Extração de laudos e contratos ([[PT-RF 02|RF 02]]) | Planejado — classificados, sem padrões |
 | Parsing estruturado do XML ([[PT-RF 04|RF 04]]) | Planejado — hoje é Regex sobre o texto |
 | OCR para documentos escaneados ([[PT-RF 04|RF 04]], [[PT-RF 05|RF 05]]) | Planejado |
-| Caso de uso na camada Application | Existe, mas não é usado e está quebrado |
+| Caso de uso na camada Application (`ExtractDocumentUseCase`) | Implementado — orquestra o fluxo desde 2026-10-18 |
+| Testes automatizados (`test/`) | Implementado — 5 testes passando em 2026-10-18, com banco isolado |
 | IA para documentos não padronizados / resumos | Ideia futura |
 
 ## Como rodar
@@ -46,8 +47,8 @@ cd FrontEnd && python -m http.server 5500 # Front em http://localhost:5500
 python -m pytest -v                       # testes
 ```
 
-> Os caminhos do banco e do log são **relativos**: rode a API a partir da raiz do projeto.
-> Em 2026-10-17 a `.venv` tinha `fastapi 0.138`, `uvicorn 0.49`, `python-multipart`, `python-docx`, `odfpy` e `pypdf 6.14`, mas **não** tinha `pytest`; os testes nunca foram executados.
+> Rode a partir da raiz do projeto: os imports são absolutos e o caminho do **log** é relativo. O banco usa o caminho absoluto de `core/dbPathConfig.py`.
+> Em 2026-10-18 a `.venv` (Python 3.12) tinha `fastapi 0.138`, `uvicorn 0.49`, `python-multipart`, `python-docx`, `odfpy`, `pypdf 6.14` e `pytest 9.1` (adicionado ao `requiriments.txt`).
 
 ## Mapa das notas
 
@@ -65,15 +66,20 @@ python -m pytest -v                       # testes
 
 ## Problemas conhecidos
 
-Encontrados lendo o código em 2026-10-17. **Nada foi executado** para confirmar.
+Revisados em 2026-10-18.
 
-- O [[Controller (Protheus)|Controller]] orquestra tudo; o `ExtractDocumentUseCase` chama `FileReaderFactory.create(...)` e `reader.read(...)`, que não existem; os reais são `get` e `extract`.
-- O [[JSON Repository]] não é usado e tem imports de módulo em vez de classe.
-- `JsonRepositoryDeps` usa um `DB_PATH` relativo próprio e ignora `core/dbPathConfig.py`. Por isso o `monkeypatch` dos testes não tem efeito, e `test_save_and_get_db` provavelmente grava no `db.json` real.
-- `test_log.py` espera a mensagem "Salvo com sucesso", mas `save_db` não registra log: provavelmente falha.
-- O sufixo do temporário (`suffix=f".{extension.value}"` no controller) fica `..pdf`, porque o valor do enum já tem o ponto.
-- `print()` ativos na `FileReaderFactory` ([[Factory (Protheus)|Factory]]).
 - `requiriments.txt` tem o nome com erro de digitação.
+- A [[Factory (Protheus)|Factory]] fica em `domain/models`, mas importa os readers de `infrastructure` (violação de camadas).
+- `JsonDocumentRepository.getAll` não reconverte `created_in`/`type`/`extension` (voltam como `str`). Não é usado por nenhuma rota.
+- O caminho do log (`core/Logs/LogUploadConfig.py`) ainda é relativo ao diretório de execução.
+- Extensão não suportada levanta `ValueError` sem tratamento, então a API responde 500 em vez de 4xx. Lido no código, não testado.
+
+> [!success] Corrigidos em 2026-10-18 (verificado com `pytest` e `uvicorn`)
+> - Orquestração movida do [[Controller (Protheus)|Controller]] para o `ExtractDocumentUseCase`, já com `FileReaderFactory.get` e `reader.extract(path)`. O endpoint retorna o mesmo `dict`.
+> - [[JSON Repository]] e [[Entity (Protheus)|DocumentEntity]] importavam módulos em vez de classes (`TypeError` ao carregar). Corrigidos, e o repositório agora é usado no fluxo.
+> - `JsonRepositoryDeps` lê o `DB_PATH` de `core/dbPathConfig.py` a cada chamada. Antes, os testes gravavam no `db.json` real: o baseline sobrescreveu o banco, que foi restaurado pelo git.
+> - `save_db` registra `INFO` "Salvo com sucesso": o teste estava certo e faltava o log no código.
+> - O sufixo do temporário passou a ser `extension.value` (`.pdf`, e não `..pdf`). Os `print()` da Factory viraram `logging.debug`.
 
 ## Decisões
 
@@ -83,7 +89,6 @@ Encontrados lendo o código em 2026-10-17. **Nada foi executado** para confirmar
 
 ## Próximos passos sugeridos
 
-1. Mover a orquestração do controller para o `ExtractDocumentUseCase`, corrigindo os métodos.
-2. Usar o `JsonDocumentRepository` no fluxo e centralizar o `DB_PATH` em `core/dbPathConfig.py`.
-3. Corrigir os testes para que isolem o banco de verdade.
-4. Implementar os padrões de laudo e contrato, ou removê-los do escopo.
+1. Implementar os padrões de laudo e contrato, ou removê-los do escopo.
+2. Responder 4xx para extensão não suportada (hoje é 500).
+3. Tirar da `domain` o import dos readers (injetar a factory ou movê-la para `infrastructure`).

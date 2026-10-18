@@ -3,7 +3,8 @@
 Este arquivo é responsável por implementar uma camada simples de persistência baseada em arquivo JSON
 
 > [!note] Caminho do banco
-> O arquivo define o próprio `DB_PATH = Path("infrastructure/db/db.json")`, **relativo ao diretório de execução**. Existe um `core/dbPathConfig.py` com um caminho absoluto baseado em `__file__`, mas ele não é importado aqui. Consequência: os testes que fazem `monkeypatch` em `core.dbPathConfig.DB_PATH` não alteram o caminho usado por `get_db`/`save_db`.
+> Desde 2026-10-18 o caminho vem de `core/dbPathConfig.py` (`BASE_DIR / "infrastructure" / "db" / "db.json"`, absoluto e baseado em `__file__`), então o banco não depende mais do diretório de execução.
+> O módulo faz `from core import dbPathConfig` e lê `dbPathConfig.DB_PATH` **dentro** de cada função. Um `from core.dbPathConfig import DB_PATH` copiaria a referência na importação e o `monkeypatch` dos testes não teria efeito. Era esse o bug: antes havia um `DB_PATH` relativo próprio, e os testes gravavam no `db.json` real.
 
 # Funcionalidade
 
@@ -19,6 +20,7 @@ Se o arquivo já existir:
 
 ````python
 def get_db() -> dict:
+    DB_PATH = dbPathConfig.DB_PATH
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     if not DB_PATH.exists():
         return {"documents": []}
@@ -41,12 +43,15 @@ A função `save_db(data: dict)` é responsável por persistir os dados no arqui
 - Garante que o diretório onde o arquivo está localizado existe
 >caso não exista, ele é criado automaticamente.
 - Em seguida, o arquivo é aberto em modo de escrita, sobrescrevendo completamente o conteúdo anterior, e os dados recebidos são serializados para o formato JSON e gravados no arquivo
+- Por fim registra `INFO` "Salvo com sucesso em <caminho>" (verificado por `test/test_log.py`)
 
 ````python
 def save_db(data: dict) -> None:
+    DB_PATH = dbPathConfig.DB_PATH
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(DB_PATH, "w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=4, default=str) #Dict -> JSON
+    logging.info(f"Salvo com sucesso em {DB_PATH}")
 ````
 
 ---

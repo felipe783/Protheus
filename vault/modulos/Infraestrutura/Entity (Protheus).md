@@ -1,6 +1,9 @@
 # Sobre o Arquivo
 
 A classe `DocumentEntity` é um **Data Transfer / Persistence Model**, responsável por representar o documento na camada de infraestrutura (ou persistência), servindo como ponte entre o domínio e o armazenamento externo.
+
+> [!note] Imports corrigidos em 2026-10-18
+> Antes, `from domain.models import Document, DocumentUUID, DocumentType, DocumentExtension` trazia **módulos**, e `toDomain()` falharia ao chamar `Document(...)`. Agora cada classe é importada do seu módulo, e os campos são tipados com `documentType`/`documentExtension`.
 # Funcionalidades
 
 ## Método `toDomain`

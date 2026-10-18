@@ -39,7 +39,7 @@ Para os documentos cujo conteúdo segue um padrão textual previsível — **Car
 
 1. O usuário envia um documento por meio de uma requisição HTTP.
     
-2. O [[Controller (Protheus)|Controller]] (`POST /document/extract`) recebe o arquivo e **orquestra todo o fluxo** — hoje é ele, e não um caso de uso da camada Application, que chama cada etapa.
+2. O [[Controller (Protheus)|Controller]] (`POST /document/extract`) recebe o arquivo e o entrega ao `ExtractDocumentUseCase` (camada Application), injetando o [[JSON Repository]]. O caso de uso orquestra as etapas abaixo.
     
 3. O `DocumentExtensionDetector` identifica a extensão e o arquivo é gravado em um temporário.
     
@@ -49,7 +49,4 @@ Para os documentos cujo conteúdo segue um padrão textual previsível — **Car
     
 6. O `DocumentExtractor` aplica os [[Patterns (Protheus)|Patterns]] Regex do tipo detectado (inclusive no XML).
     
-7. O controller monta o `Document`, grava no log e salva no `db.json` chamando `get_db`/`save_db` diretamente (o [[JSON Repository]] não é usado), e retorna o `dict` extraído.
-
-> [!note] Caso de uso não utilizado
-> Existe `application/ExtractDocumentUseCase.py`, mas ele não é chamado e está quebrado: usa `FileReaderFactory.create` e `reader.read`, que não existem (os métodos reais são `get` e `extract`). Ver [[!Modulo Application (Protheus)|!Modulo Application]].
+7. O caso de uso monta o `Document`, grava no log e o salva via `repository.save` ([[JSON Repository]] → `save_db` em `infrastructure/db/db.json`). O endpoint retorna o `dict` extraído.

@@ -12,7 +12,19 @@ Normalmente, esse módulo contém:
 
 ## No Protheus
 
-- [[Extrator e Detector]]: `DocumentTypeDetector` e `DocumentExtractor` (usados pelo [[Controller (Protheus)|Controller]]).
+- [[Extrator e Detector]]: `DocumentTypeDetector` e `DocumentExtractor` (usados pelo `ExtractDocumentUseCase`).
 - `DocumentExtensionDetector`: converte `Path(filename).suffix` em `documentExtension`; lança `ValueError` para extensões não suportadas.
-- [[Inputs e Outputs (Protheus)|Inputs e Outputs]]: `DocumentInput` é usado; `DocumentOutput` existe mas o controller retorna o `dict` cru.
-- `ExtractDocumentUseCase.py`: **não é usado e não funciona** no estado atual — chama `FileReaderFactory.create(...)` e `reader.read(file_content)`, mas a factory só tem `get` e os readers implementam `extract(path)`. É o ponto natural para tirar a orquestração do controller.
+- [[Inputs e Outputs (Protheus)|Inputs e Outputs]]: `DocumentInput` é usado pelo caso de uso; `DocumentOutput` existe mas o endpoint retorna o `dict` cru.
+- `ExtractDocumentUseCase.py`: **orquestra o fluxo de extração** desde 2026-10-18 (antes estava no [[Controller (Protheus)|Controller]]).
+
+## ExtractDocumentUseCase
+
+- Recebe no construtor um `DocumentRepository` (a interface de `domain/interfaces`). A implementação concreta, o [[JSON Repository]], é escolhida pela API. Assim a `application` não importa diretamente a persistência da `infrastructure` (a ressalva é a Factory, que ainda importa os readers).
+- `execute(file_content: bytes, filename: str) -> dict`:
+  1. `DocumentExtensionDetector.detect(filename)`;
+  2. grava os bytes num temporário com `suffix=extension.value` (ex.: `.pdf`), porque os readers recebem um **caminho**;
+  3. `FileReaderFactory.get(extension).extract(tmp_path)` e apaga o temporário no `finally`;
+  4. `DocumentTypeDetector.detect` → `DocumentInput` → `DocumentExtractor.extract`;
+  5. monta o `Document`, registra com `logging.debug` e chama `repository.save(document)`;
+  6. retorna o `dict` extraído.
+- Testado em `test/test_use_case.py` com `test.xml` e banco temporário (`monkeypatch` em `core.dbPathConfig.DB_PATH`).

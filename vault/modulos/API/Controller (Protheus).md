@@ -1,13 +1,11 @@
 # Sobre o Arquivo
 
-O Arquivo `controller` é o **Orquestrador das Requisições** é nele onde são feitas as principais chamadas entre os arquivos.
-
-> [!warning] Estado atual
-> Hoje o controller faz o papel de caso de uso: chama detector, factory, extractor e persistência diretamente. O `ExtractDocumentUseCase` existe mas não é usado (ver [[!Modulo Application (Protheus)|!Modulo Application]]), e a gravação no JSON é feita com `get_db`/`save_db` em vez do [[JSON Repository]].
+O Arquivo `controller` é a **porta de entrada HTTP** do upload. Desde 2026-10-18 ele não orquestra mais o fluxo: só recebe o arquivo, monta o caso de uso com o repositório concreto e devolve o resultado. A orquestração (temporário → factory → reader → detector → extractor → `Document` → JSON) fica no `ExtractDocumentUseCase` (ver [[!Modulo Application (Protheus)|!Modulo Application]]).
 
 Responsabilidades:
 - criar o `Endpoint`
 - Receber os Arquivo que foi dado Upload pelo Usuário
+- Escolher a implementação do repositório ([[JSON Repository]]) e entregá-la ao caso de uso
 - Retornar a resposta HTTP
 # Funcionalidades
 
@@ -19,76 +17,23 @@ Responsabilidades:
 		tags=["document"]
 	)
 ````
-## Upload dos Arquivos
+## Upload e delegação ao caso de uso
 
-- A API recebe o arquivo via FastAPI, realiza a leitura do conteúdo, identifica sua extensão e, em seguida, cria um arquivo temporário para processamento posterior.
-
-````python
-	async def extract_document(file: UploadFile = File(...)):
-	    content = await file.read()
-	    extension = DocumentExtensionDetector.detect(file.filename)
-	  
-		with tempfile.NamedTemporaryFile(
-			delete=False,
-			suffix=f".{extension.value}"
-		)as tmp:
-		        tmp.write(content)
-		        tmp_path = tmp.name	
-````
-# Filtragem por Factory
-
-- Com o arquivo temporário criado, o "controller" aciona a [[Factory (Protheus)|Factory]], que seleciona o reader adequado para cada extensão ([[Reader PDF]], [[Reader XML]], [[Reader DOCX]] ou [[Reader ODT]]). Em seguida, o "reader" processa o arquivo e realiza a extração do conteúdo, convertendo-o para texto puro.
+- A API recebe o arquivo via FastAPI, lê os bytes e passa conteúdo e nome do arquivo para o caso de uso. O retorno é o `dict` com os campos extraídos (o mesmo de antes da migração).
+- O `JsonDocumentRepository` é criado **aqui**, e não dentro da `application`: assim a camada Application depende só da interface `DocumentRepository` e não importa diretamente a persistência da `infrastructure` (a ressalva é a Factory, que ainda importa os readers).
+- O import de `core.Logs.LogUploadConfig` continua no controller: é ele que executa o `logging.basicConfig` e direciona os logs para `infrastructure/logs/uploads_logs.log`.
 
 ````python
-	try:
-		reader = FileReaderFactory.get(extension)
-		text = reader.extract(tmp_path)
-	finally: # Fecha o Arquivo Temp
-	    os.unlink(tmp_path)
+@documentController.post("/extract")
+async def extract_document(file: UploadFile = File(...)):
+
+    content = await file.read()
+    useCase = ExtractDocumentUseCase(JsonDocumentRepository())
+    return useCase.execute(file_content=content, filename=file.filename)
 ````
 
-# Extração das Informações
+> [!note] Verificado em 2026-10-18
+> Com `uvicorn`, `POST /document/extract` com `test.xml`, `test2.pdf` e `test3.odt` retornou HTTP 200. Os `dict`s e os registros gravados (chaves, `type`/`extension` como texto) ficaram iguais aos que o código anterior já tinha salvo no `db.json`.
 
-- Com a ``Factory`` e o ``Reader`` selecionados, o arquivo passa por uma etapa de análise para identificar seu tipo por meio da função `detect` do [[Extrator e Detector|"DocumentTypeDetector.py"]].Com o tipo já definido, os dados são encapsulados em um [[Inputs e Outputs (Protheus)#Document Input|DTO de Input]]. Em seguida, esse contexto é utilizado pelo [[Extrator e Detector#Document Extractor|DocumentExtractor]] para realizar a extração e processamento do conteúdo do documento.
-
-````python
-	documentType = DocumentTypeDetector.detect(
-		content=text,
-		extension=extension
-	)
-	documentInput = DocumentInput(
-		created_in=datetime.now(),
-		type=documentType,
-		extension=extension
-	)
-	result = DocumentExtractor.extract(
-		content=text,
-		document_type=documentInput.type
-	)
-````
-
-# Salvar no JSON
-
-- O código cria uma entidade [[Document Model e UUID#Document|Document]] a partir dos dados processados do documento. Em seguida, registra essa entidade no log, depois converte o objeto de dominio para uma Entidade de Persistencia[[Entity (Protheus)|(DocumentEntity)]], carrega um banco JSON em memória e adiciona o novo documento na lista,por fim no JSON
-
-````python
-	document = Document(
-		id=DocumentUUID.generate(),
-		created_in=documentInput.created_in,
-		description=result,
-		type=documentInput.type,
-		extension=documentInput.extension
-	)
-    logging.debug(document)
-    entity = DocumentEntity.fromDomain(document) # Converter do dominio -> Json
-    db = get_db()
-
-    db["documents"].append({
-        "id": entity.id,
-        "created_in": entity.created_in,
-        "description": entity.description,
-        "type": entity.type.value,
-        "extension": entity.extension.value
-    })
-    save_db(db)    
-````
+---
+**Projeto Pai:** [[_Protheus]] · **Módulo:** [[!Modulo API (Protheus)|!Modulo API]]

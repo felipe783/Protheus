@@ -27,18 +27,18 @@ Conceitos transversais (camadas, caminhos, testes, persistência, erros e logs�
 ## Mapa do código
 
 - `api/main.py`: cria o `FastAPI`, configura o CORS (`localhost:5500` e `127.0.0.1:5500`) e registra o router.
-- `api/routers/ControllerDocument.py`: `POST /document/extract`. **Hoje orquestra todo o fluxo** (temporário → factory → reader → detector → extractor → `Document` → JSON).
-- `application/`: `DocumentExtensionDetector`, `DocumentTypeDetector`, `DocumentExtractor`, DTOs em `input/` e `output/`, e `ExtractDocumentUseCase.py` (**não usado e quebrado**).
+- `api/routers/ControllerDocument.py`: `POST /document/extract`. Lê o upload e chama `ExtractDocumentUseCase(JsonDocumentRepository()).execute(...)`.
+- `application/`: `DocumentExtensionDetector`, `DocumentTypeDetector`, `DocumentExtractor`, DTOs em `input/` e `output/`, e `ExtractDocumentUseCase.py`, que orquestra o fluxo (temporário → factory → reader → detector → extractor → `Document` → `repository.save`) e recebe o `DocumentRepository` no construtor.
 - `domain/models/`: enums `documentType` e `documentExtension`, `Document`, `DocumentUUID`, `FileReaderFactory`. `domain/interfaces/`: `FileReader`, `DocumentRepository`, `DocumentExtractor`.
 - `infrastructure/readers/`: `PdfReader` (pypdf), `DocxReader` (python-docx), `OdtReader` (odfpy), `XmlReader` (decodifica bytes; **não** faz parse).
-- `infrastructure/persistence/`: `DocumentEntity`, `JsonRepositoryDeps` (`get_db`/`save_db`) e `JsonDocumentRepository` (**não usado**).
-- `core/`: `DocumentKeyWords.py`, `DocumentPatternsRegex.py`, `Logs/LogUploadConfig.py`, `dbPathConfig.py` (não importado pelo repositório JSON).
+- `infrastructure/persistence/`: `DocumentEntity`, `JsonRepositoryDeps` (`get_db`/`save_db`, com caminho de `core/dbPathConfig.py`) e `JsonDocumentRepository` (usado pelo caso de uso).
+- `core/`: `DocumentKeyWords.py`, `DocumentPatternsRegex.py`, `Logs/LogUploadConfig.py`, `dbPathConfig.py` (caminho absoluto do `db.json`).
 - `FrontEnd/`: HTML/JS estático que chama `http://localhost:8000/document/extract`.
-- `test/`: `test_db.py`, `test_log.py`.
+- `test/`: `test_db.py`, `test_log.py`, `test_use_case.py`.
 
 ## Comandos
 
-Tudo a partir da **raiz** do repositório: os imports são absolutos (`from domain.models...`) e os caminhos do banco e do log são relativos ao diretório atual.
+Tudo a partir da **raiz** do repositório: os imports são absolutos (`from domain.models...`) e o caminho do log é relativo ao diretório atual.
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
@@ -59,8 +59,8 @@ python -m pytest -v                      # testes
 - **Novo tipo de documento** = membro em `documentType` + lista em `KEY_WORDS` + dicionário em `DOCUMENT_PATTERNS`. Sem padrões, o tipo é classificado mas a extração retorna `{}` (é o caso atual de `LAUDO` e `CONTRATO`).
 - A classificação exige **≥ 3 palavras-chave** encontradas, senão o tipo é `DESCONHECIDO`. O texto é comparado em minúsculas; a extração Regex usa o texto em **maiúsculas**, exceto no `DANFE_XML`, que preserva o original (as tags XML diferenciam maiúsculas).
 - Os Regex usam `re.DOTALL | re.MULTILINE` e só o **grupo 1** é capturado. Ao escrever um padrão, garanta exatamente um grupo de captura com o valor.
-- **Persistência**: o arquivo é `infrastructure/db/db.json` e o log é `infrastructure/logs/uploads_logs.log`, ambos relativos ao diretório atual. Não teste gravando no `db.json` real.
-- **Não reescreva o controller inteiro** sem pedido: a migração da orquestração para o `ExtractDocumentUseCase` é uma tarefa planejada e própria.
+- **Persistência**: o arquivo é `infrastructure/db/db.json` (caminho absoluto em `core/dbPathConfig.py`) e o log é `infrastructure/logs/uploads_logs.log` (relativo ao diretório atual). Não teste gravando no `db.json` real: faça `monkeypatch.setattr("core.dbPathConfig.DB_PATH", tmp_path / "db.json")`, o que só funciona porque `JsonRepositoryDeps` lê `dbPathConfig.DB_PATH` na hora da chamada.
+- A orquestração fica no `ExtractDocumentUseCase`. O controller só monta as dependências: a `application` não importa diretamente a persistência da `infrastructure` (a ressalva é a Factory, que ainda importa os readers).
 - O XML **não** é parseado com `ElementTree`: é Regex sobre o texto. O parse estruturado é requisito (RF 04) ainda não implementado. Não descreva o comportamento como se já existisse.
 
 ## Armadilhas conhecidas

@@ -28,5 +28,5 @@ class documentExtension(str, Enum):
     DESCONHECIDO = ""
 ````
 
-> [!note] Efeito colateral do ponto no valor
-> O [[Controller (Protheus)|Controller]] cria o temporário com `suffix=f".{extension.value}"`, o que gera `arquivo..pdf` (dois pontos). Funciona porque os readers não dependem do nome do arquivo, mas o ponto extra é redundante.
+> [!note] O valor já inclui o ponto
+> Use `extension.value` direto como sufixo (ex.: `suffix=extension.value` no `ExtractDocumentUseCase`). Até 2026-10-18 o código usava `f".{extension.value}"`, que gerava `arquivo..pdf`.

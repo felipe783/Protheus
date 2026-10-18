@@ -31,5 +31,9 @@ Lê todos os registros do JSON e os converte de volta para `Document` via `Docum
         ]
 ````
 
-> [!warning] Estado atual
-> A classe **não é usada**: o [[Controller (Protheus)|Controller]] grava no JSON chamando `get_db`/`save_db` diretamente. Os imports `from domain.interfaces import DocumentRepository` e `from infrastructure.persistence.entity import DocumentEntity` importam o **módulo**, não a classe, então é provável que a classe falhe ao ser carregada — não verificado em execução.
+> [!note] Estado atual (2026-10-18)
+> A classe **é usada no fluxo**: o [[Controller (Protheus)|Controller]] a injeta no `ExtractDocumentUseCase`, que chama `save`. Os imports foram corrigidos para importar as **classes** (`from domain.interfaces.DocumentRepository import DocumentRepository`, `from infrastructure.persistence.entity.DocumentEntity import DocumentEntity`). Antes, herdar de um módulo quebrava o carregamento com `TypeError: module() takes at most 2 arguments`, confirmado em execução.
+> O `__dict__` da entidade grava `type`/`extension` como texto (`"crlv_e"`, `".odt"`), porque os enums herdam de `str`. O formato é o mesmo que o controller gravava antes.
+
+> [!warning] `getAll` não reconverte os tipos
+> `getAll` não é chamado por nenhuma rota. Ele monta `DocumentEntity(**item)` direto do JSON, então `created_in`, `type` e `extension` voltam como `str`, não como `datetime` e enums. Não verificado em execução.
