@@ -1,13 +1,14 @@
 ---
+Tipo: projeto
 Projeto: Protheus
-Status: em desenvolvimento
+Status: ativo
 Stack:
   - Python
   - FastAPI
   - pypdf
   - python-docx
   - odfpy
-Codigo: "E:/Downloads/!Faculdade/Protheus"
+Codigo: "Protheus"
 Repositorio: "https://github.com/felipe783/Protheus"
 Atualizado: 2026-10-17
 ---
@@ -15,7 +16,7 @@ Atualizado: 2026-10-17
 
 Sistema de **extração e classificação de documentos**. Recebe um arquivo via API, identifica a extensão, classifica o tipo documental por palavras-chave e extrai campos com [Regex](https://regexr.com/).
 
-- **Código:** raiz deste repositório; a documentação fica em `vault/` (local: `E:\Downloads\!Faculdade\Protheus`)
+- **Código:** raiz deste repositório; a documentação fica em `vault/`
 - **Entrada:** `POST /document/extract` (upload `multipart/form-data`)
 - **Saída:** `dict` com os campos extraídos; o documento também é salvo em `infrastructure/db/db.json`
 
