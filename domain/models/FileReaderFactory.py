@@ -1,3 +1,4 @@
+import logging
 from domain.models.DocumentExtension import documentExtension
 from infrastructure.readers.PdfReader import PdfReader
 from infrastructure.readers.XmlReader import XmlReader
@@ -10,19 +11,19 @@ class FileReaderFactory:
         match extension:
             
             case documentExtension.PDF:
-                print("pdf")
+                logging.debug("Reader escolhido: pdf")
                 return PdfReader()
             
             case documentExtension.XML:
-                print("xml")
+                logging.debug("Reader escolhido: xml")
                 return XmlReader()
 
             case documentExtension.DOCX:
-                print("docx")
+                logging.debug("Reader escolhido: docx")
                 return DocxReader()
 
             case documentExtension.ODT:
-                print("odt")
+                logging.debug("Reader escolhido: odt")
                 return OdtReader()
 
             case _:

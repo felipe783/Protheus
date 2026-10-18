@@ -1,6 +1,6 @@
 from domain.models.Document import Document
-from domain.interfaces import DocumentRepository
-from infrastructure.persistence.entity import DocumentEntity
+from domain.interfaces.DocumentRepository import DocumentRepository
+from infrastructure.persistence.entity.DocumentEntity import DocumentEntity
 from infrastructure.persistence.repository.JsonRepositoryDeps import get_db,save_db
 
 class JsonDocumentRepository(DocumentRepository):

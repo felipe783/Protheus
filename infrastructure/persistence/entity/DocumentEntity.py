@@ -1,14 +1,17 @@
 from dataclasses import dataclass
 from datetime import datetime
-from domain.models import Document, DocumentUUID, DocumentType, DocumentExtension
+from domain.models.Document import Document
+from domain.models.DocumentUUID import DocumentUUID
+from domain.models.DocumentType import documentType
+from domain.models.DocumentExtension import documentExtension
 
 @dataclass
 class DocumentEntity:
     id: str
     created_in: datetime
     description: dict
-    type: DocumentType
-    extension: DocumentExtension
+    type: documentType
+    extension: documentExtension
 
     def toDomain(self) -> Document:
         return Document(
