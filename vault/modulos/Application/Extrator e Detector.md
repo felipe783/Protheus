@@ -1,6 +1,6 @@
-# Sobres os Arquivo 
+# Sobre os Arquivos
 
-# Document Extractor ^extractor
+# Document Extractor
 
 Responsabilidade:
 - Esse arquivo implementa uma classe responsável por **extrair informações de um documento utilizando [Regex](https://regexr.com/).**
@@ -9,7 +9,7 @@ Responsabilidade:
 ## Criação da Class e Def Extract
 
 Primeiro é definida a classe `DocumentExtractor`, e o método `extract` é marcado como `@staticmethod`, permitindo que seja chamado sem instanciar a classe.
-- O método recebe `content` (texto extraído do documento) e `document_type`, definido pelo [[Extrator e Detector#Document Detector detector|DocumentTypeDetector]]. O retorno é um `dict`.
+- O método recebe `content` (texto extraído do documento) e `document_type`, definido pelo [[Extrator e Detector#Document Detector|DocumentTypeDetector]]. O retorno é um `dict`.
 - Os [[Patterns (Protheus)|Patterns]] são carregados conforme o tipo do documento. Se não houver padrões, retorna um `dict` vazio.
 - O conteúdo é pré-processado: em geral é convertido para maiúsculas para facilitar o uso de regex, exceto no caso de arquivos `.xml` (como NF-e/DANFE), que mantêm a formatação original por serem sensíveis a isso.
 
@@ -39,7 +39,7 @@ Primeiro são definidas as `flags` do [Regex](https://regexr.com/), permitindo `
 
         return result
 ````
-# Document Detector^detector
+# Document Detector
 
 Responsabilidade:
  - Identificar automaticamente o tipo de documento com base no conteúdo do arquivo e sua extensão.

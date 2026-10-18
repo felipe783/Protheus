@@ -49,7 +49,7 @@ Responsabilidades:
 
 # Extração das Informações
 
-- Com a ``Factory`` e o ``Reader`` selecionados, o arquivo passa por uma etapa de análise para identificar seu tipo por meio da função `detect` do [[Extrator e Detector|"DocumentTypeDetector.py"]].Com o tipo já definido, os dados são encapsulados em um [[Inputs e Outputs (Protheus)#Document input input-doc |DTO de Input]]. Em seguida, esse contexto é utilizado pelo [[Extrator e Detector#DocumentExtractor extractor|DocumentExtractor]] para realizar a extração e processamento do conteúdo do documento.
+- Com a ``Factory`` e o ``Reader`` selecionados, o arquivo passa por uma etapa de análise para identificar seu tipo por meio da função `detect` do [[Extrator e Detector|"DocumentTypeDetector.py"]].Com o tipo já definido, os dados são encapsulados em um [[Inputs e Outputs (Protheus)#Document Input|DTO de Input]]. Em seguida, esse contexto é utilizado pelo [[Extrator e Detector#Document Extractor|DocumentExtractor]] para realizar a extração e processamento do conteúdo do documento.
 
 ````python
 	documentType = DocumentTypeDetector.detect(
@@ -69,7 +69,7 @@ Responsabilidades:
 
 # Salvar no JSON
 
-- O código cria uma entidade [[Document Model e UUID#Sobre os arquivos document|Document]] a partir dos dados processados do documento. Em seguida, registra essa entidade no log, depois converte o objeto de dominio para uma Entidade de Persistencia[[JSON Repository#DocumentEntity document-entity|(DocumentEntity)]], carrega um banco JSON em memória e adiciona o novo documento na lista,por fim no JSON
+- O código cria uma entidade [[Document Model e UUID#Document|Document]] a partir dos dados processados do documento. Em seguida, registra essa entidade no log, depois converte o objeto de dominio para uma Entidade de Persistencia[[Entity (Protheus)|(DocumentEntity)]], carrega um banco JSON em memória e adiciona o novo documento na lista,por fim no JSON
 
 ````python
 	document = Document(

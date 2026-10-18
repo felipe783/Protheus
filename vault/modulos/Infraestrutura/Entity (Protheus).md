@@ -1,4 +1,4 @@
-# Sobre o Arquivo^entity
+# Sobre o Arquivo
 
 A classe `DocumentEntity` é um **Data Transfer / Persistence Model**, responsável por representar o documento na camada de infraestrutura (ou persistência), servindo como ponte entre o domínio e o armazenamento externo.
 # Funcionalidades

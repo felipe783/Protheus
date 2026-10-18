@@ -4,12 +4,12 @@ O arquivo `FileReaderFactory` implementa o padrão de projeto **Factory Method**
 # Funcionalidade
 
 Responsabilidade:
-- Ela recebe uma [[Document Type e Extension#Document Extension extension|documentExtension]] e retorna a instância correta do Reader responsável por interpretar aquele tipo de arquivo
+- Ela recebe uma [[Document Type e Extension#Document Extension|documentExtension]] e retorna a instância correta do Reader responsável por interpretar aquele tipo de arquivo
 
 ## Metódo Get
 
 - O método `get` é estático (`@staticmethod`)
-- Recebe como parâmetro a [[Document Type e Extension#Document Extension extension|documentExtension]]
+- Recebe como parâmetro a [[Document Type e Extension#Document Extension|documentExtension]]
 - Utiliza um Match-Case para decidir qual reader ira instanciar
 - No código atual os `print("pdf")`, `print("xml")` etc. estão **ativos** (o trecho abaixo os mostra comentados); o ideal seria trocá-los por `logging.debug`.
 

@@ -1,7 +1,7 @@
 # Sobre os Arquivos
 
 As classes `documentType` e `documentExtension` são **enums tipados como `str`**, o que significa que cada valor do enum também se comporta como uma string. 
-# Document Type^type
+# Document Type
 
 É um enum `documentType` representa a **classificação lógica do documento**, independentemente do formato do arquivo. Ela define os possíveis tipos reconhecidos
 
@@ -15,7 +15,7 @@ class documentType(str, Enum):
     DESCONHECIDO = "desconhecido"
 ````
 
-# Document Extension ^extension
+# Document Extension
 
 É um enum `documentExtension` que representa as **extensões de arquivo suportadas**. O valor de cada membro já inclui o ponto (`".pdf"`), porque é comparado diretamente com `Path(filename).suffix` no `DocumentExtensionDetector`.
 

@@ -2,7 +2,7 @@
 
 O arquivo "Patterns" tem como responsabilidade centralizar todos os padrões de extração de dados dos documentos suportados pelo sistema.
 - Cada tipo de [Regex](https://regexr.com/) é separado por cada documento(crlv,nfe,cartão cnpj)
-- E centraliza tudo em uma ``única Dict`` chamada de ``DOCUMENT_PATTERNS`` ,funcionando como um catalogo onde a chave é o [[Document Type e Extension#Type type|DocumentType]]
+- E centraliza tudo em uma ``única Dict`` chamada de ``DOCUMENT_PATTERNS`` ,funcionando como um catalogo onde a chave é o [[Document Type e Extension#Document Type|DocumentType]]
 
 ````python
 NFE_PATTERNS = {

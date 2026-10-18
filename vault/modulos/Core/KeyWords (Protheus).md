@@ -1,11 +1,11 @@
 # Sobre o Arquivo
 
 Esse Módulo cria um **dicionário** chamado `KEY_WORDS` que será usado para identificar automaticamente o tipo de um documento com base nas palavras encontradas em seu conteúdo.
-É usando principalmente pelo [[Extrator e Detector#Document Detector detector|DocumentTypeDetector]]
+É usando principalmente pelo [[Extrator e Detector#Document Detector|DocumentTypeDetector]]
 # Funcionalidade:
 
 Cria uma anotação de tipo (_type hint_) para um dicionário em que:
-- a **chave** é um valor do enum [[Document Type e Extension#Type type|Document Type]];
+- a **chave** é um valor do enum [[Document Type e Extension#Document Type|Document Type]];
 - o **valor** é uma lista de strings (`list[str]`).
 
 ````python
