@@ -3,7 +3,7 @@
 O Arquivo `controller` é o **Orquestrador das Requisições** é nele onde são feitas as principais chamadas entre os arquivos.
 
 > [!warning] Estado atual
-> Hoje o controller faz o papel de caso de uso: chama detector, factory, extractor e persistência diretamente. O `ExtractDocumentUseCase` existe mas não é usado (ver [[!Modulo Application]]), e a gravação no JSON é feita com `get_db`/`save_db` em vez do [[JSON Repository]].
+> Hoje o controller faz o papel de caso de uso: chama detector, factory, extractor e persistência diretamente. O `ExtractDocumentUseCase` existe mas não é usado (ver [[!Modulo Application (Protheus)|!Modulo Application]]), e a gravação no JSON é feita com `get_db`/`save_db` em vez do [[JSON Repository]].
 
 Responsabilidades:
 - criar o `Endpoint`
@@ -37,7 +37,7 @@ Responsabilidades:
 ````
 # Filtragem por Factory
 
-- Com o arquivo temporário criado, o "controller" aciona a [[Factory]], que seleciona o reader adequado para cada extensão ([[Reader PDF]], [[Reader XML]], [[Reader DOCX]] ou [[Reader ODT]]). Em seguida, o "reader" processa o arquivo e realiza a extração do conteúdo, convertendo-o para texto puro.
+- Com o arquivo temporário criado, o "controller" aciona a [[Factory (Protheus)|Factory]], que seleciona o reader adequado para cada extensão ([[Reader PDF]], [[Reader XML]], [[Reader DOCX]] ou [[Reader ODT]]). Em seguida, o "reader" processa o arquivo e realiza a extração do conteúdo, convertendo-o para texto puro.
 
 ````python
 	try:
@@ -49,7 +49,7 @@ Responsabilidades:
 
 # Extração das Informações
 
-- Com a ``Factory`` e o ``Reader`` selecionados, o arquivo passa por uma etapa de análise para identificar seu tipo por meio da função `detect` do [[Extrator e Detector|"DocumentTypeDetector.py"]].Com o tipo já definido, os dados são encapsulados em um [[Inputs e Outputs#Document input input-doc |DTO de Input]]. Em seguida, esse contexto é utilizado pelo [[Extrator e Detector#DocumentExtractor extractor|DocumentExtractor]] para realizar a extração e processamento do conteúdo do documento.
+- Com a ``Factory`` e o ``Reader`` selecionados, o arquivo passa por uma etapa de análise para identificar seu tipo por meio da função `detect` do [[Extrator e Detector|"DocumentTypeDetector.py"]].Com o tipo já definido, os dados são encapsulados em um [[Inputs e Outputs (Protheus)#Document input input-doc |DTO de Input]]. Em seguida, esse contexto é utilizado pelo [[Extrator e Detector#DocumentExtractor extractor|DocumentExtractor]] para realizar a extração e processamento do conteúdo do documento.
 
 ````python
 	documentType = DocumentTypeDetector.detect(

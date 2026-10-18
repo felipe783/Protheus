@@ -12,13 +12,13 @@ O índice abaixo é carregado em toda sessão. As notas detalhadas ficam em `vau
 
 | Assunto | Nota |
 |---|---|
-| Fluxo completo do upload até o JSON | `vault/Requisitos/Resumo Principal.md` |
-| Requisitos funcionais | `vault/Requisitos/Funcionais/RF 01.md` … `RF 05.md` |
-| Rota e orquestração | `vault/Modulos/API/Controller.md`, `Main.md` |
-| Detecção de tipo e extração Regex | `vault/Modulos/Application/Extrator e Detector.md` |
-| Palavras-chave e padrões | `vault/Modulos/Core/KeyWords.md`, `Patterns.md` |
-| Enums, entidade, factory, interfaces | `vault/Modulos/Domain/` |
-| Readers e persistência JSON | `vault/Modulos/Infraestrutura/` |
+| Fluxo completo do upload até o JSON | `vault/Requisitos/Resumo Principal (Protheus).md` |
+| Requisitos funcionais | `vault/Requisitos/Funcionais/PT-RF 01.md` … `PT-RF 05.md` |
+| Rota e orquestração | `vault/modulos/API/Controller (Protheus).md`, `Main (Protheus).md` |
+| Detecção de tipo e extração Regex | `vault/modulos/Application/Extrator e Detector.md` |
+| Palavras-chave e padrões | `vault/modulos/Core/KeyWords (Protheus).md`, `Patterns (Protheus).md` |
+| Enums, entidade, factory, interfaces | `vault/modulos/Domain/` |
+| Readers e persistência JSON | `vault/modulos/Infraestrutura/` |
 
 Há também textos de arquitetura em `docs/` (guias genéricos de Clean Architecture + DDD). Para o estado real, o `vault/` prevalece.
 
@@ -71,11 +71,11 @@ Estão em **Problemas conhecidos** do índice importado acima (`vault/_Protheus.
 
 Ao alterar comportamento, atualize na mesma tarefa:
 1. `vault/_Protheus.md`: **Status**, **Problemas conhecidos** e `Atualizado` no frontmatter.
-2. A nota do módulo afetado (tabela acima) e, se mudar o fluxo, o `Resumo Principal`.
-3. `vault/Estrutura.md`, se arquivos forem criados, movidos ou removidos.
+2. A nota do módulo afetado (tabela acima) e, se mudar o fluxo, o `Resumo Principal (Protheus)`.
+3. `vault/Estrutura (Protheus).md`, se arquivos forem criados, movidos ou removidos.
 
 Convenções do vault (o mesmo do Obsidian em `Contexto Projetos/Protheus`, via junction):
 - Frontmatter: siga a tabela de **Convenções** em `E:/Downloads/!Faculdade/Contexto Projetos/Contexto Geral.md`, que é a única definição (`Tipo`, `Status` controlado, `Codigo` relativo) e tem templates em `_templates/`.
-- As notas do Protheus usam nomes curtos (`Main`, `Controller`, `Factory`…). Notas novas não podem repetir nomes já usados em outros projetos do vault.
-- Formato das notas de módulo: `# Sobre o Arquivo` → `Responsabilidade:` → `# Funcionalidade(s)` com trechos ````python e callouts `> [!warning]` para divergências.
+- Nomes de nota únicos no vault inteiro: notas genéricas levam `(Protheus)`; requisitos usam `PT-RF NN`.
+- Notas de módulo novas partem do template `Template - Modulo` (H1 = nome da nota, seções em H2, callouts `> [!warning]` para divergências). As notas antigas usam `# Sobre o Arquivo` / `# Funcionalidades`; não é preciso convertê-las.
 - Separe o que foi **executado** do que foi **lido no código**, com data.

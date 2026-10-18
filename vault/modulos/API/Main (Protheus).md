@@ -30,7 +30,7 @@ POST /document/extract
 ```
 ## Comunicação
 
-`main.py` chama diretamente o componente de [[Controller]] e com isso nele é chamado:
+`main.py` chama diretamente o componente de [[Controller (Protheus)|Controller]] e com isso nele é chamado:
 
 - `DocumentExtensionDetector`;
 - `DocumentTypeDetector`;

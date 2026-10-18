@@ -22,4 +22,4 @@ Hierarquia dos Níveis
 | `CRITICAL` | Erros muito graves que podem interromper a aplicação.      |
 
 ---
-**Projeto Pai:** [[_Protheus]] · **Módulo:** [[!Modulo Core]]
+**Projeto Pai:** [[_Protheus]] · **Módulo:** [[!Modulo Core (Protheus)|!Modulo Core]]

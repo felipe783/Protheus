@@ -32,4 +32,4 @@ Lê todos os registros do JSON e os converte de volta para `Document` via `Docum
 ````
 
 > [!warning] Estado atual
-> A classe **não é usada**: o [[Controller]] grava no JSON chamando `get_db`/`save_db` diretamente. Os imports `from domain.interfaces import DocumentRepository` e `from infrastructure.persistence.entity import DocumentEntity` importam o **módulo**, não a classe, então é provável que a classe falhe ao ser carregada — não verificado em execução.
+> A classe **não é usada**: o [[Controller (Protheus)|Controller]] grava no JSON chamando `get_db`/`save_db` diretamente. Os imports `from domain.interfaces import DocumentRepository` e `from infrastructure.persistence.entity import DocumentEntity` importam o **módulo**, não a classe, então é provável que a classe falhe ao ser carregada — não verificado em execução.

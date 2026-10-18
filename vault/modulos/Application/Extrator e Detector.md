@@ -10,7 +10,7 @@ Responsabilidade:
 
 Primeiro é definida a classe `DocumentExtractor`, e o método `extract` é marcado como `@staticmethod`, permitindo que seja chamado sem instanciar a classe.
 - O método recebe `content` (texto extraído do documento) e `document_type`, definido pelo [[Extrator e Detector#Document Detector detector|DocumentTypeDetector]]. O retorno é um `dict`.
-- Os [[Patterns]] são carregados conforme o tipo do documento. Se não houver padrões, retorna um `dict` vazio.
+- Os [[Patterns (Protheus)|Patterns]] são carregados conforme o tipo do documento. Se não houver padrões, retorna um `dict` vazio.
 - O conteúdo é pré-processado: em geral é convertido para maiúsculas para facilitar o uso de regex, exceto no caso de arquivos `.xml` (como NF-e/DANFE), que mantêm a formatação original por serem sensíveis a isso.
 
 ````python
@@ -27,7 +27,7 @@ class DocumentExtractor:
 ## Criando o Resultado do Regex
 
 Primeiro são definidas as `flags` do [Regex](https://regexr.com/), permitindo `.` incluir quebras de linha (`re.DOTALL`) e `^`/`$` funcionarem por linha (`re.MULTILINE`).
-- Depois, para cada [[Patterns|Pattern]], é buscada a primeira ocorrência no texto e retornado o primeiro grupo capturado do [Regex](https://regexr.com/).
+- Depois, para cada [[Patterns (Protheus)|Pattern]], é buscada a primeira ocorrência no texto e retornado o primeiro grupo capturado do [Regex](https://regexr.com/).
 - Em seguida, o valor é limpo (remoção de ruídos/caracteres indesejados) e salvo em um `dict`, que será retornado no final.
 ````python
         flags = re.DOTALL | re.MULTILINE
@@ -70,7 +70,7 @@ class DocumentTypeDetector:
 
 ## Classificação por palavras
 
-Primeiro, o `scores` é inicializado como vazio. Em seguida, é iniciado um loop que conta quantas vezes as palavras do texto aparecem nas [[KeyWords]] de cada tipo.
+Primeiro, o `scores` é inicializado como vazio. Em seguida, é iniciado um loop que conta quantas vezes as palavras do texto aparecem nas [[KeyWords (Protheus)|KeyWords]] de cada tipo.
 - Para cada correspondência, é calculada uma pontuação e armazenada em `scores`.
 - Ao final, o algoritmo seleciona o tipo com a maior pontuação, retornando o resultado mais provável.
 

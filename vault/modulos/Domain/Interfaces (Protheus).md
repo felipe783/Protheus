@@ -26,7 +26,7 @@ class DocxReader(FileReader):
 ````
 
 > [!note] Classes vazias no mesmo arquivo
-> `PdfReader`, `XmlReader` e `DocxReader` com `...` estão **de fato** em `domain/interfaces/FileReader.py`, duplicando os nomes das implementações reais em `infrastructure/readers/`. Não causam erro porque a [[Factory]] importa as de `infrastructure`, mas podem confundir.
+> `PdfReader`, `XmlReader` e `DocxReader` com `...` estão **de fato** em `domain/interfaces/FileReader.py`, duplicando os nomes das implementações reais em `infrastructure/readers/`. Não causam erro porque a [[Factory (Protheus)|Factory]] importa as de `infrastructure`, mas podem confundir.
 
 # Outras interfaces
 

@@ -29,4 +29,4 @@ DOCUMENT_PATTERNS = {
 ````
 
 > [!warning] Tipos sem padrões
-> `LAUDO` e `CONTRATO` não estão em `DOCUMENT_PATTERNS`. Eles podem ser classificados (têm [[KeyWords]]), mas o `DocumentExtractor` retorna `{}` para eles.
+> `LAUDO` e `CONTRATO` não estão em `DOCUMENT_PATTERNS`. Eles podem ser classificados (têm [[KeyWords (Protheus)|KeyWords]]), mas o `DocumentExtractor` retorna `{}` para eles.

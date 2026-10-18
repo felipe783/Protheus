@@ -12,7 +12,7 @@ Normalmente, esse módulo contém:
 
 ## No Protheus
 
-- [[Extrator e Detector]]: `DocumentTypeDetector` e `DocumentExtractor` (usados pelo [[Controller]]).
+- [[Extrator e Detector]]: `DocumentTypeDetector` e `DocumentExtractor` (usados pelo [[Controller (Protheus)|Controller]]).
 - `DocumentExtensionDetector`: converte `Path(filename).suffix` em `documentExtension`; lança `ValueError` para extensões não suportadas.
-- [[Inputs e Outputs]]: `DocumentInput` é usado; `DocumentOutput` existe mas o controller retorna o `dict` cru.
+- [[Inputs e Outputs (Protheus)|Inputs e Outputs]]: `DocumentInput` é usado; `DocumentOutput` existe mas o controller retorna o `dict` cru.
 - `ExtractDocumentUseCase.py`: **não é usado e não funciona** no estado atual — chama `FileReaderFactory.create(...)` e `reader.read(file_content)`, mas a factory só tem `get` e os readers implementam `extract(path)`. É o ponto natural para tirar a orquestração do controller.

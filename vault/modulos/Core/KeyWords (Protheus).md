@@ -27,4 +27,4 @@ KEY_WORDS: dict[documentType, list[str]] = {
 
 - O código também tem listas para `DANFE_XML`, `LAUDO` e `CONTRATO` (omitidas acima).
 - O detector exige **pelo menos 3 palavras-chave** encontradas; abaixo disso o tipo é `DESCONHECIDO`.
-- `LAUDO` e `CONTRATO` têm palavras-chave mas não têm [[Patterns]], então são classificados sem extração de campos.
+- `LAUDO` e `CONTRATO` têm palavras-chave mas não têm [[Patterns (Protheus)|Patterns]], então são classificados sem extração de campos.

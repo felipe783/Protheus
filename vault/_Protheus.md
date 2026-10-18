@@ -25,14 +25,14 @@ Sistema de **extração e classificação de documentos**. Recebe um arquivo via
 | Funcionalidade | Estado |
 |---|---|
 | Upload e detecção de extensão (`.pdf`, `.xml`, `.docx`, `.odt`) | Implementado |
-| Leitura de texto por extensão ([[Factory]] + readers) | Implementado |
-| Classificação por palavras-chave ([[KeyWords]]) | Implementado |
-| Extração Regex de CRLV-e, Cartão CNPJ e NF-e ([[Patterns]]) | Implementado |
+| Leitura de texto por extensão ([[Factory (Protheus)|Factory]] + readers) | Implementado |
+| Classificação por palavras-chave ([[KeyWords (Protheus)|KeyWords]]) | Implementado |
+| Extração Regex de CRLV-e, Cartão CNPJ e NF-e ([[Patterns (Protheus)|Patterns]]) | Implementado |
 | Persistência em JSON | Implementado (direto no controller) |
 | Frontend estático (`FrontEnd/`) | Implementado |
-| Extração de laudos e contratos ([[RF 02]]) | Planejado — classificados, sem padrões |
-| Parsing estruturado do XML ([[RF 04]]) | Planejado — hoje é Regex sobre o texto |
-| OCR para documentos escaneados ([[RF 04]], [[RF 05]]) | Planejado |
+| Extração de laudos e contratos ([[PT-RF 02|RF 02]]) | Planejado — classificados, sem padrões |
+| Parsing estruturado do XML ([[PT-RF 04|RF 04]]) | Planejado — hoje é Regex sobre o texto |
+| OCR para documentos escaneados ([[PT-RF 04|RF 04]], [[PT-RF 05|RF 05]]) | Planejado |
 | Caso de uso na camada Application | Existe, mas não é usado e está quebrado |
 | IA para documentos não padronizados / resumos | Ideia futura |
 
@@ -51,28 +51,28 @@ python -m pytest -v                       # testes
 
 ## Mapa das notas
 
-- [[Visão Geral]]: visão resumida do sistema e das camadas.
-- [[Resumo Principal]]: requisitos de upload, extração por formato e fluxo de processamento.
-- [[Estrutura]]: árvore de pastas e arquivos.
-- [[Dependencias]]: bibliotecas e instalação.
-- Requisitos: [[RF 01]] · [[RF 02]] · [[RF 03]] · [[RF 04]] · [[RF 05]]
+- [[Visão Geral (Protheus)|Visão Geral]]: visão resumida do sistema e das camadas.
+- [[Resumo Principal (Protheus)|Resumo Principal]]: requisitos de upload, extração por formato e fluxo de processamento.
+- [[Estrutura (Protheus)|Estrutura]]: árvore de pastas e arquivos.
+- [[Dependencias (Protheus)|Dependencias]]: bibliotecas e instalação.
+- Requisitos: [[PT-RF 01|RF 01]] · [[PT-RF 02|RF 02]] · [[PT-RF 03|RF 03]] · [[PT-RF 04|RF 04]] · [[PT-RF 05|RF 05]]
 - Camadas:
-  - [[!Modulo API]]: borda HTTP ([[Main]], [[Controller]]).
-  - [[!Modulo Application]]: detectores, extrator, DTOs.
-  - [[!Modulo Domain]]: enums, entidade, interfaces, factory.
-  - [[!Modulo Core]]: keywords, regex, logging, paths.
-  - [[!Modulo Insfraestrutura]]: readers e persistência JSON.
+  - [[!Modulo API (Protheus)|!Modulo API]]: borda HTTP ([[Main (Protheus)|Main]], [[Controller (Protheus)|Controller]]).
+  - [[!Modulo Application (Protheus)|!Modulo Application]]: detectores, extrator, DTOs.
+  - [[!Modulo Domain (Protheus)|!Modulo Domain]]: enums, entidade, interfaces, factory.
+  - [[!Modulo Core (Protheus)|!Modulo Core]]: keywords, regex, logging, paths.
+  - [[!Modulo Infraestrutura (Protheus)|!Modulo Insfraestrutura]]: readers e persistência JSON.
 
 ## Problemas conhecidos
 
 Encontrados lendo o código em 2026-10-17. **Nada foi executado** para confirmar.
 
-- O [[Controller]] orquestra tudo; o `ExtractDocumentUseCase` chama `FileReaderFactory.create(...)` e `reader.read(...)`, que não existem; os reais são `get` e `extract`.
+- O [[Controller (Protheus)|Controller]] orquestra tudo; o `ExtractDocumentUseCase` chama `FileReaderFactory.create(...)` e `reader.read(...)`, que não existem; os reais são `get` e `extract`.
 - O [[JSON Repository]] não é usado e tem imports de módulo em vez de classe.
 - `JsonRepositoryDeps` usa um `DB_PATH` relativo próprio e ignora `core/dbPathConfig.py`. Por isso o `monkeypatch` dos testes não tem efeito, e `test_save_and_get_db` provavelmente grava no `db.json` real.
 - `test_log.py` espera a mensagem "Salvo com sucesso", mas `save_db` não registra log: provavelmente falha.
 - O sufixo do temporário (`suffix=f".{extension.value}"` no controller) fica `..pdf`, porque o valor do enum já tem o ponto.
-- `print()` ativos na `FileReaderFactory` ([[Factory]]).
+- `print()` ativos na `FileReaderFactory` ([[Factory (Protheus)|Factory]]).
 - `requiriments.txt` tem o nome com erro de digitação.
 
 ## Decisões
