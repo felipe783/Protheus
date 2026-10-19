@@ -22,7 +22,7 @@ O índice abaixo é carregado em toda sessão. As notas detalhadas ficam em `vau
 
 Há também textos de arquitetura em `docs/` (guias genéricos de Clean Architecture + DDD). Para o estado real, o `vault/` prevalece.
 
-Conceitos transversais (camadas, caminhos, testes, persistência, erros e logs…), com aprendizados deste e de outros projetos: `E:/Downloads/!Faculdade/Contexto Projetos/Conhecimento/_Conhecimento.md`. Leia sob demanda, quando a tarefa tocar o assunto.
+Conceitos transversais (camadas, caminhos, testes, persistência, erros e logs…), com aprendizados deste e de outros projetos: `../Contexto-Projetos/Conhecimento/_Conhecimento.md`. Leia sob demanda, quando a tarefa tocar o assunto.
 
 ## Mapa do código
 
@@ -74,8 +74,8 @@ Ao alterar comportamento, atualize na mesma tarefa:
 2. A nota do módulo afetado (tabela acima) e, se mudar o fluxo, o `Resumo Principal (Protheus)`.
 3. `vault/Estrutura (Protheus).md`, se arquivos forem criados, movidos ou removidos.
 
-Convenções do vault (o mesmo do Obsidian em `Contexto Projetos/Protheus`, via junction):
-- Frontmatter: siga a tabela de **Convenções** em `E:/Downloads/!Faculdade/Contexto Projetos/Contexto Geral.md`, que é a única definição (`Tipo`, `Status` controlado, `Codigo` relativo) e tem templates em `_templates/`.
+Convenções do vault (o mesmo do Obsidian em `Contexto-Projetos/Protheus`, via junction):
+- Frontmatter: siga a tabela de **Convenções** em `../Contexto-Projetos/Contexto Geral.md`, que é a única definição (`Tipo`, `Status` controlado, `Codigo` relativo) e tem templates em `_templates/`.
 - Nomes de nota únicos no vault inteiro: notas genéricas levam `(Protheus)`; requisitos usam `PT-RF NN`.
 - Notas de módulo novas partem do template `Template - Modulo` (H1 = nome da nota, seções em H2, callouts `> [!warning]` para divergências). As notas antigas usam `# Sobre o Arquivo` / `# Funcionalidades`; não é preciso convertê-las.
 - Separe o que foi **executado** do que foi **lido no código**, com data.
